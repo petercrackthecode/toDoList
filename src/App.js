@@ -3,7 +3,7 @@ import "./styles/App.css";
 
 import ListTitle from './components/ListTitle.js';
 import CompletedList from './components/CompletedList.js';
-import ToDoList from './components/ToDoList.js/index.js';
+import ToDoList from './components/ToDoList.js';
 
 
 const defaultTasksList = [
@@ -13,7 +13,7 @@ const defaultTasksList = [
   "Invent autodriving cars' system"
 ];
 
-class TodoList extends Component {
+class App extends Component {
   state= {
     listTitle: 'My new list',
     taskList: {
@@ -24,7 +24,7 @@ class TodoList extends Component {
 
   render() {
     return (
-      <div id='to-do-list'>
+      <div id='app'>
         <ListTitle/>
         <ToDoList/>
         <CompletedList/>
@@ -33,4 +33,4 @@ class TodoList extends Component {
   }
 }
 
-export default ToDoList;
+export default App;
