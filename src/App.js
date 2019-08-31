@@ -14,8 +14,8 @@ const defaultTasksList = [
 
 class App extends Component {
   state= {
-    listTitle: 'My new list',
-    taskList: {
+    m_listTitle: 'My new list',
+    m_taskList: {
       toDo: defaultTasksList,
       completed: [],
     },
@@ -24,9 +24,9 @@ class App extends Component {
   render() {
     return (
       <div id='app'>
-        <ListTitle/>
-        <ToDoList/>
-        <CompletedList/>
+        <ListTitle listTitle={this.state.m_listTitle}/>
+        <ToDoList toDoList={this.state.m_taskList.toDo}/>
+        <CompletedList completedList={this.state.m_taskList.completed}/>
       </div>
     );
   }
