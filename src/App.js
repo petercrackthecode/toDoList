@@ -5,7 +5,6 @@ import ListTitle from './components/ListTitle.js';
 import CompletedList from './components/CompletedList.js';
 import ToDoList from './components/ToDoList.js';
 
-
 const defaultTasksList = [
   "Build rocket",
   "Cover high-speed wifi connection globally",
