@@ -24,6 +24,10 @@ class App extends Component {
     },
   };
 
+  deleteList= async () => {
+    
+  }
+
   render() {
     return (
       <Container id='app'>
