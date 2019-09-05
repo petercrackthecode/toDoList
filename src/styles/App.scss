@@ -1,0 +1,7 @@
+@mixin Border($color) {
+    border: 3px solid $color;
+}
+
+#list-title {
+    @include Border(red);
+}

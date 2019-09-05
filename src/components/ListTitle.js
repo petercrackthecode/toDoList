@@ -1,7 +1,9 @@
 import React from "react";
 
+import Col from "react-bootstrap/Col";
+
 export default function ListTitle(props) {
     return (
-        <div id='list-title'>{props.listTitle}</div>
+        <Col id='list-title' md={{span: 8, offset: 2}} className='text-center mb-5'>{props.listTitle}</Col>
     );
 }

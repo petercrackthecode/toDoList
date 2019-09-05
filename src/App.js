@@ -7,6 +7,7 @@ import ToDoList from './components/ToDoList.js';
 
 // import from React Bootstrap
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 const defaultTasksList = [
   "Build rocket",
@@ -25,15 +26,21 @@ class App extends Component {
   };
 
   deleteList= async () => {
-    
+
   }
 
   render() {
     return (
       <Container id='app'>
-        <ListTitle listTitle={this.state.m_listTitle}/>
-        <ToDoList toDoList={this.state.m_taskList.toDo}/>
-        <CompletedList completedList={this.state.m_taskList.completed}/>
+        <Row>
+          <ListTitle listTitle={this.state.m_listTitle}/>
+        </Row>
+        <Row>
+          <ToDoList toDoList={this.state.m_taskList.toDo}/>
+        </Row>
+        <Row>
+          <CompletedList completedList={this.state.m_taskList.completed}/>
+        </Row>
       </Container>
     );
   }
