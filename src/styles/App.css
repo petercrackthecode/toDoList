@@ -1,3 +1,11 @@
+#app {
+  min-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  border: 3px solid green;
+}
+
 #list-title {
   border: 3px solid red;
 }
