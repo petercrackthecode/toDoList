@@ -1,7 +1,6 @@
 import React from "react";
 
 import ListGroup from 'react-bootstrap/ListGroup';
-// import {ListGroup as ListGroupItem} from 'react-bootstrap/ListGroupItem';
 
 export function Task(props) {
     return (

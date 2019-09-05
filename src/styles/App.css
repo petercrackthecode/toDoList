@@ -2,11 +2,11 @@
   min-width: 100%;
   min-height: 100vh;
   margin: 0;
-  padding: 20px;
+  padding: 5rem;
   border: 3px solid green;
 }
 
-#list-title {
+#app div.row #list-title {
   border: 3px solid red;
 }
 
