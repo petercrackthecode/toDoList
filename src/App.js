@@ -26,7 +26,11 @@ class App extends Component {
     }
   };
 
-  deleteList = async () => {};
+  deleteTask = async () => {};
+
+  shiftTask = async (from='', to='', taskKey='') => {
+
+  };
 
   addNewTask = async newTask => {
     await this.setState(currentState => ({
