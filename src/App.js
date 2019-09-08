@@ -30,7 +30,10 @@ class App extends Component {
 
   addNewTask = async newTask => {
     await this.setState(currentState => ({
-      m_taskList: currentState.m_taskList.toDo.concat(newTask)
+      m_taskList: { 
+        toDo: currentState.m_taskList.toDo.concat(newTask),
+        completed: []
+      }
     }));
   };
 
