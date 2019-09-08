@@ -21,11 +21,11 @@ class App extends Component {
     m_taskList: {
       toDo: defaultTasksList,
       completed: [],
-    },
+    }
   };
 
   deleteList= async () => {
-    
+
   }
 
   render() {
