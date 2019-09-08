@@ -12,7 +12,7 @@ import Row from "react-bootstrap/Row";
 
 const defaultTasksList = [
   "Build rocket",
-  "Cover high-speed wifi connection globally",
+  "Cover a high-speed wifi connection globally",
   "Meet alien",
   "Invent autodriving cars' system"
 ];
@@ -53,7 +53,6 @@ class App extends Component {
         <Row>
           <ToDoList toDoList={toDo} />
         </Row>
-        <hr />
         <Row>
           <CompletedList completedList={completed} />
         </Row>

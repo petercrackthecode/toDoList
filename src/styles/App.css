@@ -18,23 +18,23 @@
 #app div.row #list-title {
   border: 3px solid red;
 }
-#app div.row #to-do-list {
+#app div.row .list {
   width: 100%;
 }
-#app div.row #to-do-list .toggle {
+#app div.row .list .toggle {
   position: relative;
 }
-#app div.row #to-do-list .toggle button {
+#app div.row .list .toggle button {
   z-index: 2;
 }
-#app div.row #to-do-list .toggle hr {
+#app div.row .list .toggle hr {
   position: absolute;
   top: 10%;
   display: block;
   width: 100%;
   z-index: 1;
 }
-#app div.row #to-do-list ul li {
+#app div.row .list ul li {
   border: 3px solid black;
   border-radius: 10%;
   color: white;

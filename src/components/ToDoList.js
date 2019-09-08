@@ -11,7 +11,7 @@ export default function ToDoList(props) {
     const toDoList= (props.toDoList.length !== 0) ? props.toDoList.map(task => <Task task={task}/>) : null;
 
     return (
-        <fieldset id='to-do-list' className='row'>
+        <fieldset id='to-do-list' className='row list'>
             <Toggle type='to-do' listLength={toDoList.length}/>
             <ListGroup as='ul' className='list-unstyled col-md-8 offset-md-2'>
                 {toDoList ? toDoList : 'Empty'}
