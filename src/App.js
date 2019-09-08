@@ -50,7 +50,6 @@ class App extends Component {
         <Row>
           <Input addNewTask={this.addNewTask} />
         </Row>
-        <hr />
         <Row>
           <ToDoList toDoList={toDo} />
         </Row>

@@ -9,7 +9,7 @@
 #app div.row #list-title {
   border: 3px solid red;
 }
-#app div.row #to-do-list li {
+#app div.row #to-do-list ul li {
   border: 3px solid black;
   border-radius: 10%;
   color: white;
