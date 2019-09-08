@@ -1,13 +1,11 @@
 import React from "react";
 
-import Media from 'react-bootstrap/Media';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 export function Task(props) {
     return (
-        <Media as='li' className={`task-${props.task}`} bsPrefix='media-body'>
-            <Media.Body>
+        <ListGroup.Item as='li' className={`task-${props.task}`} bsPrefix='media-body'>
                 {props.task}
-            </Media.Body>
-        </Media>
+        </ListGroup.Item>
     );
 }

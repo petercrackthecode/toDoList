@@ -1,0 +1,14 @@
+@import './_partial.scss';
+
+@mixin Border($color) {
+    border: 3px solid $color;
+}
+
+#app {
+    div.row {
+        #list-title {
+            @include Border(red);
+        }
+    }
+}
+
