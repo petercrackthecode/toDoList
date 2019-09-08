@@ -16,7 +16,8 @@ export default function Input(props) {
                       size='sm' 
                       type='text' 
                       className='text-center mb-5 col-md-6 offset-md-3' 
-                      placeholder='Add a to-do...' onKeyUp={addNewTask}>
+                      placeholder='Add a to-do...' onKeyUp={addNewTask}
+                      autoComplete='off'>
         </Form.Control>
     );
 }

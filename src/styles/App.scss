@@ -9,6 +9,16 @@
         #list-title {
             @include Border(red);
         }
+
+        #to-do-list {
+            li {
+                @include Border(black);
+                border-radius: 10%;
+                color: white;
+                background-color: black;
+
+            }
+        }
     }
 }
 

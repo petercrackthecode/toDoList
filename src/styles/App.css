@@ -9,5 +9,11 @@
 #app div.row #list-title {
   border: 3px solid red;
 }
+#app div.row #to-do-list li {
+  border: 3px solid black;
+  border-radius: 10%;
+  color: white;
+  background-color: black;
+}
 
 /*# sourceMappingURL=App.css.map */
