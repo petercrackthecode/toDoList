@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import "./styles/App.css";
 
-import ListTitle from './components/ListTitle.js';
-import CompletedList from './components/CompletedList.js';
-import ToDoList from './components/ToDoList.js';
+import ListTitle from "./components/ListTitle.js";
+import CompletedList from "./components/CompletedList.js";
+import ToDoList from "./components/ToDoList.js";
+import Input from "./components/Input.js";
 
 // import from React Bootstrap
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
 
 const defaultTasksList = [
   "Build rocket",
@@ -17,29 +18,40 @@ const defaultTasksList = [
 ];
 
 class App extends Component {
-  state= {
-    m_listTitle: 'My new list',
+  state = {
+    m_listTitle: "My new list",
     m_taskList: {
-      toDo: defaultTasksList,
-      completed: [],
+      toDo: defaultTasksList.slice(0),
+      completed: []
     }
   };
 
-  deleteList= async () => {
+  deleteList = async () => {};
 
-  }
+  addNewTask = async newTask => {
+    await this.setState(currentState => ({
+      m_taskList: currentState.m_taskList.toDo.concat(newTask)
+    }));
+  };
 
   render() {
+    const {m_listTitle, m_taskList}= this.state;
+    const {toDo, completed}= m_taskList;
+
     return (
-      <Container id='app'>
+      <Container id="app">
         <Row>
-          <ListTitle listTitle={this.state.m_listTitle}/>
+          <ListTitle listTitle={m_listTitle} />
+        </Row>
+        <br />
+        <Row>
+          <Input addNewTask={this.addNewTask} />
         </Row>
         <Row>
-          <ToDoList toDoList={this.state.m_taskList.toDo}/>
+          <ToDoList toDoList={toDo} />
         </Row>
         <Row>
-          <CompletedList completedList={this.state.m_taskList.completed}/>
+          <CompletedList completedList={completed} />
         </Row>
       </Container>
     );
