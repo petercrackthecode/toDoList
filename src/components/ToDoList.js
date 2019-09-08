@@ -9,7 +9,7 @@ export default function ToDoList(props) {
     const toDoList= (props.toDoList.length !== 0) ? props.toDoList.map(task => <Task task={task}/>) : null;
 
     return (
-        <ListGroup as='ul' id='to-do-list' className='list-unstyled'>
+        <ListGroup as='ul' id='to-do-list' className='list-unstyled col-md-8 offset-md-2'>
             {toDoList ? toDoList : 'Empty'}
         </ListGroup>
     );

@@ -30,16 +30,16 @@ class App extends Component {
 
   addNewTask = async newTask => {
     await this.setState(currentState => ({
-      m_taskList: { 
+      m_taskList: {
         toDo: currentState.m_taskList.toDo.concat(newTask),
-        completed: []
+        completed: currentState.m_taskList.completed,
       }
     }));
   };
 
   render() {
-    const {m_listTitle, m_taskList}= this.state;
-    const {toDo, completed}= m_taskList;
+    const { m_listTitle, m_taskList } = this.state;
+    const { toDo, completed } = m_taskList;
 
     return (
       <Container id="app">
@@ -50,9 +50,11 @@ class App extends Component {
         <Row>
           <Input addNewTask={this.addNewTask} />
         </Row>
+        <hr />
         <Row>
           <ToDoList toDoList={toDo} />
         </Row>
+        <hr />
         <Row>
           <CompletedList completedList={completed} />
         </Row>
