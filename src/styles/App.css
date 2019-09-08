@@ -6,8 +6,33 @@
   border: 3px solid green;
 }
 
+#app hr {
+  border: none;
+  height: 2px;
+  /* Set the hr color */
+  color: #333;
+  /* old IE */
+  background-color: #333;
+  /* Modern browsers */
+}
 #app div.row #list-title {
   border: 3px solid red;
+}
+#app div.row #to-do-list {
+  width: 100%;
+}
+#app div.row #to-do-list .toggle {
+  position: relative;
+}
+#app div.row #to-do-list .toggle button {
+  z-index: 2;
+}
+#app div.row #to-do-list .toggle hr {
+  position: absolute;
+  top: 10%;
+  display: block;
+  width: 100%;
+  z-index: 1;
 }
 #app div.row #to-do-list ul li {
   border: 3px solid black;

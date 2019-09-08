@@ -5,12 +5,37 @@
 }
 
 #app {
+    hr {
+        border: none;
+        height: 2px;
+        /* Set the hr color */
+        color: #333; /* old IE */
+        background-color: #333; /* Modern browsers */
+    }
+
     div.row {
         #list-title {
             @include Border(red);
         }
 
         #to-do-list {
+            width: 100%;
+            .toggle {
+                position: relative;
+
+                button {
+                    z-index: 2;
+                }
+
+                hr {
+                    position: absolute;
+                    top: 10%;
+                    display: block;
+                    width: 100%;
+                    z-index: 1;
+                }
+            }
+
             ul {
                 li {
                     @include Border(black);
