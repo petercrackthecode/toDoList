@@ -15,7 +15,7 @@ export default function Input(props) {
         <Form.Control id='list-input' 
                       size='sm' 
                       type='text' 
-                      className='text-center mb-5 col-md-8 offset-md-2' 
+                      className='text-center mb-5 col-md-6 offset-md-3' 
                       placeholder='Add a to-do...' onKeyUp={addNewTask}>
         </Form.Control>
     );
