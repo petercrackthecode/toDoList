@@ -17,6 +17,10 @@ const defaultTasksList = [
   "Invent autodriving cars' system"
 ];
 
+let tasksWithID= {};
+
+defaultTasksList.map(aTask => tasksWithID[]);
+
 class App extends Component {
   state = {
     m_listTitle: "My new list",
