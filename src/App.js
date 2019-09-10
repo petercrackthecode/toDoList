@@ -34,19 +34,19 @@ class App extends Component {
   deleteTask = async () => {};
 
   shiftTask = async (from='', to='', taskID='') => {
+    let newTaskList= this.state.m_taskList;
+    const task= newTaskList[from][taskID];
+    delete newTaskList[from][taskID];
 
+    newTaskList[to][taskID]= task;
+
+    this.setState({m_taskList: newTaskList});
   };
 
   addNewTask = async newTask => {
-    await this.setState(currentState => (
-      currentState.m_taskList.toDo[ID()]= newTask,
-      {
-        m_taskList: {
-          toDo: currentState.m_taskList.toDo,
-          completed: currentState.m_taskList.completed,
-        }
-      }
-    ));
+    let currentState= this.state;
+    currentState.m_taskList.toDo[ID()]= newTask;
+    this.setState(currentState);
   };
 
   render() {
@@ -63,10 +63,10 @@ class App extends Component {
           <Input addNewTask={this.addNewTask} />
         </Row>
         <Row>
-          <ToDoList toDoList={toDo} />
+          <ToDoList toDoList={toDo} shiftTask={this.shiftTask}/>
         </Row>
         <Row>
-          <CompletedList completedList={completed} />
+          <CompletedList completedList={completed} shiftTask={this.shiftTask}/>
         </Row>
       </Container>
     );
