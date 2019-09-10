@@ -5,6 +5,7 @@ import ListTitle from "./components/ListTitle.js";
 import CompletedList from "./components/CompletedList.js";
 import ToDoList from "./components/ToDoList.js";
 import Input from "./components/Input.js";
+import ID from './lamdabFnc/ID.js';
 
 // import from React Bootstrap
 import Container from "react-bootstrap/Container";
@@ -19,13 +20,13 @@ const defaultTasksList = [
 
 let tasksWithID= {};
 
-defaultTasksList.map(aTask => tasksWithID[]);
+defaultTasksList.map(aTask => tasksWithID[ID()]= aTask);
 
 class App extends Component {
   state = {
     m_listTitle: "My new list",
     m_taskList: {
-      toDo: defaultTasksList.slice(0),
+      toDo: tasksWithID,
       completed: []
     }
   };
