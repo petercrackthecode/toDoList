@@ -5,8 +5,12 @@ import ListGroup from "react-bootstrap/ListGroup";
 
 import {Toggle} from './ToggleBtn.js';
 
+import isEmptyObject from '../lambdaFnc/isEmptyObject.js';
+
 export default function CompletedList(props) {
-    const completedList= props.completedList.length !== 0 ? props.completedList.map(task => <Task task={task}/>) : null;
+    const completedList= !isEmptyObject(props.completedList) ? 
+                    (Object.keys(props.completedList).map(id => <Task task={props.completedList[id]}/>)) : 
+                    null;
 
     return (
         <fieldset id='completed-list' className='row list mt-4'>

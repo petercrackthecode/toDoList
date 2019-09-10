@@ -5,7 +5,7 @@ import ListTitle from "./components/ListTitle.js";
 import CompletedList from "./components/CompletedList.js";
 import ToDoList from "./components/ToDoList.js";
 import Input from "./components/Input.js";
-import ID from './lamdabFnc/ID.js';
+import ID from './lambdaFnc/ID.js';
 
 // import from React Bootstrap
 import Container from "react-bootstrap/Container";
@@ -27,23 +27,26 @@ class App extends Component {
     m_listTitle: "My new list",
     m_taskList: {
       toDo: tasksWithID,
-      completed: []
+      completed: {},
     }
   };
 
   deleteTask = async () => {};
 
-  shiftTask = async (from='', to='', taskKey='') => {
+  shiftTask = async (from='', to='', taskID='') => {
 
   };
 
   addNewTask = async newTask => {
-    await this.setState(currentState => ({
-      m_taskList: {
-        toDo: currentState.m_taskList.toDo.concat(newTask),
-        completed: currentState.m_taskList.completed,
+    await this.setState(currentState => (
+      currentState.m_taskList.toDo[ID()]= newTask,
+      {
+        m_taskList: {
+          toDo: currentState.m_taskList.toDo,
+          completed: currentState.m_taskList.completed,
+        }
       }
-    }));
+    ));
   };
 
   render() {

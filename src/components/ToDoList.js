@@ -5,10 +5,12 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 import {Toggle} from './ToggleBtn.js';
 
-export default function ToDoList(props) {
-    console.log("toDoList's length is " + props.toDoList.length);
+import isEmptyObject from '../lambdaFnc/isEmptyObject.js';
 
-    const toDoList= (props.toDoList.length !== 0) ? props.toDoList.map(task => <Task task={task}/>) : null;
+export default function ToDoList(props) {
+    const toDoList= !isEmptyObject(props.toDoList) ? 
+                    (Object.keys(props.toDoList).map(id => <Task task={props.toDoList[id]}/>)) : 
+                    null;
 
     return (
         <fieldset id='to-do-list' className='row list'>
