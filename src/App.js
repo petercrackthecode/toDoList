@@ -5,7 +5,7 @@ import ListTitle from "./components/ListTitle.js";
 import CompletedList from "./components/CompletedList.js";
 import ToDoList from "./components/ToDoList.js";
 import Input from "./components/Input.js";
-import ID from './lambdaFnc/ID.js';
+import ID from "./lambdaFnc/ID.js";
 
 // import from React Bootstrap
 import Container from "react-bootstrap/Container";
@@ -18,37 +18,44 @@ const defaultTasksList = [
   "Invent autodriving cars' system"
 ];
 
-let tasksWithID= {};
+let tasksWithID = {};
 
-defaultTasksList.map(aTask => tasksWithID[ID()]= aTask);
+defaultTasksList.map(aTask => (tasksWithID[ID()] = aTask));
 
 class App extends Component {
   state = {
     m_listTitle: "My new list",
+    m_input: "",
     m_taskList: {
       toDo: tasksWithID, // tasksWithID is an object.
-      completed: {},
+      completed: {}
     }
   };
 
   deleteTask = async () => {};
 
-  shiftTask = async (from='', to='', taskID='') => {
-    console.log('from: ' + from + ', to: ' + to + ' with a taskID: ' + taskID);
+  shiftTask = async (from = "", to = "", taskID = "") => {
+    console.log("from: " + from + ", to: " + to + " with a taskID: " + taskID);
 
-    let newTaskList= this.state.m_taskList;
-    const task= newTaskList[from][taskID];
+    let newTaskList = this.state.m_taskList;
+    const task = newTaskList[from][taskID];
     delete newTaskList[from][taskID];
 
-    newTaskList[to][taskID]= task;
+    newTaskList[to][taskID] = task;
 
-    this.setState({m_taskList: newTaskList});
+    this.setState({ m_taskList: newTaskList });
   };
 
   addNewTask = async newTask => {
-    let currentState= this.state;
-    currentState.m_taskList.toDo[ID()]= newTask;
+    let currentState = this.state;
+    currentState.m_taskList.toDo[ID()] = newTask;
     this.setState(currentState);
+  };
+
+  changeInput = async newInput => {
+    this.setState({
+      m_input: newInput
+    });
   };
 
   render() {
@@ -62,13 +69,17 @@ class App extends Component {
         </Row>
         <br />
         <Row>
-          <Input addNewTask={this.addNewTask} />
+          <Input
+            addNewTask={this.addNewTask}
+            changeInput={this.changeInput}
+            input={this.state.m_input}
+          />
         </Row>
         <Row>
-          <ToDoList toDoList={toDo} shiftTask={this.shiftTask}/>
+          <ToDoList toDoList={toDo} shiftTask={this.shiftTask} />
         </Row>
         <Row>
-          <CompletedList completedList={completed} shiftTask={this.shiftTask}/>
+          <CompletedList completedList={completed} shiftTask={this.shiftTask} />
         </Row>
       </Container>
     );

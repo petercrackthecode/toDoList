@@ -11,13 +11,20 @@ export default function Input(props) {
         }
     }
 
+    const changeInput= async (event) => {
+        props.changeInput(event.target.value);
+    };
+
     return (
         <Form.Control id='list-input' 
                       size='sm' 
-                      type='text' 
+                      type='text'
+                      as='input'
                       className='text-center mb-5 col-md-6 offset-md-3' 
                       placeholder='Add a to-do...' onKeyUp={addNewTask}
-                      autoComplete='off'>
+                      onChange={changeInput}
+                      autoComplete='off'
+                      value={props.input}>
         </Form.Control>
     );
 }
