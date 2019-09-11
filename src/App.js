@@ -26,7 +26,7 @@ class App extends Component {
   state = {
     m_listTitle: "My new list",
     m_taskList: {
-      toDo: tasksWithID,
+      toDo: tasksWithID, // tasksWithID is an object.
       completed: {},
     }
   };
@@ -34,6 +34,8 @@ class App extends Component {
   deleteTask = async () => {};
 
   shiftTask = async (from='', to='', taskID='') => {
+    console.log('from: ' + from + ', to: ' + to + ' with a taskID: ' + taskID);
+
     let newTaskList= this.state.m_taskList;
     const task= newTaskList[from][taskID];
     delete newTaskList[from][taskID];

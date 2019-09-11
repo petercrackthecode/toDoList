@@ -9,7 +9,10 @@ import isEmptyObject from '../lambdaFnc/isEmptyObject.js';
 
 export default function CompletedList(props) {
     const completedList= !isEmptyObject(props.completedList) ? 
-                    (Object.keys(props.completedList).map(id => <Task task={props.completedList[id]} shiftTask={props.shiftTask}/>)) : 
+                    (Object.keys(props.completedList).map(id => <Task task={props.completedList[id]}
+                                                                      taskID={id} 
+                                                                      shiftTask={props.shiftTask}
+                                                                      type='completed'/>)) : 
                     null;
 
     return (
