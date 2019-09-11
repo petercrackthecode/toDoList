@@ -3,7 +3,6 @@
   min-height: 100vh;
   margin: 0;
   padding: 5rem;
-  border: 3px solid green;
 }
 
 #app hr {
@@ -39,6 +38,9 @@
   border-radius: 10%;
   color: white;
   background-color: black;
+}
+#app div.row .list ul svg {
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=App.css.map */

@@ -8,6 +8,8 @@ export default function Input(props) {
         if (event.keyCode === 13) {
             event.preventDefault();
             await props.addNewTask(event.target.value);
+
+            props.changeInput('');
         }
     }
 

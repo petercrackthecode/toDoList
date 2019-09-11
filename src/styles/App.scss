@@ -42,8 +42,11 @@
                     border-radius: 10%;
                     color: white;
                     background-color: black;
-                }
 
+                    path:hover {
+                        cursor: pointer;
+                    }
+                }
             }
         }
     }
