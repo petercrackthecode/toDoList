@@ -32,7 +32,11 @@ class App extends Component {
     }
   };
 
-  deleteTask = async () => {};
+  deleteTask = async (from = "", taskID = "") => {
+    let newTaskList = this.state.m_taskList;
+    delete newTaskList[from][taskID];
+    this.setState({ m_taskList: newTaskList });
+  };
 
   shiftTask = async (from = "", to = "", taskID = "") => {
     console.log("from: " + from + ", to: " + to + " with a taskID: " + taskID);
@@ -76,10 +80,18 @@ class App extends Component {
           />
         </Row>
         <Row>
-          <ToDoList toDoList={toDo} shiftTask={this.shiftTask} />
+          <ToDoList
+            toDoList={toDo}
+            shiftTask={this.shiftTask}
+            deleteTask={this.deleteTask}
+          />
         </Row>
         <Row>
-          <CompletedList completedList={completed} shiftTask={this.shiftTask} />
+          <CompletedList
+            completedList={completed}
+            shiftTask={this.shiftTask}
+            deleteTask={this.deleteTask}
+          />
         </Row>
       </Container>
     );

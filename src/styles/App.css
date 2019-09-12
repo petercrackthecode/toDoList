@@ -39,7 +39,7 @@
   color: white;
   background-color: black;
 }
-#app div.row .list ul svg {
+#app div.row .list ul li path:hover {
   cursor: pointer;
 }
 

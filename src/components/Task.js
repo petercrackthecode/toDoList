@@ -15,6 +15,11 @@ export function Task(props) {
     props.shiftTask(from, to, props.taskID);
   };
 
+  const deleteTask= async () => {
+    const from= props.type;
+    props.deleteTask(from, props.taskID);
+  };
+
   return (
     <ListGroup.Item
       as="li"
@@ -28,7 +33,7 @@ export function Task(props) {
         onClick={shiftTask}
       />
       {props.type === "completed" ? <strike>{props.task}</strike> : props.task}
-      <FontAwesomeIcon className="float-right mr-3 mt-1 trash-can" icon={faTrash} />
+      <FontAwesomeIcon className="float-right mr-3 mt-1 trash-can" icon={faTrash} onClick={deleteTask}/>
     </ListGroup.Item>
   );
 }

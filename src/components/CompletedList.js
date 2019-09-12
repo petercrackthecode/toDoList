@@ -12,7 +12,9 @@ export default function CompletedList(props) {
                     (Object.keys(props.completedList).map(id => <Task task={props.completedList[id]}
                                                                       taskID={id} 
                                                                       shiftTask={props.shiftTask}
-                                                                      type='completed'/>)) : 
+                                                                      type='completed'
+                                                                      deleteTask={props.deleteTask}
+                                                                      />)) : 
                     null;
 
     return (
