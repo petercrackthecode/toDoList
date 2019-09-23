@@ -32,6 +32,13 @@ class App extends Component {
     }
   };
 
+  playSound= async () => {
+    const audio= document.getElementById('beep');
+    if (!audio) return;
+    audio.currentTime= 0;
+    audio.play();
+  }
+
   deleteTask = async (from = "", taskID = "") => {
     let newTaskList = this.state.m_taskList;
     delete newTaskList[from][taskID];
@@ -39,7 +46,6 @@ class App extends Component {
   };
 
   shiftTask = async (from = "", to = "", taskID = "") => {
-    console.log("from: " + from + ", to: " + to + " with a taskID: " + taskID);
 
     let newTaskList = this.state.m_taskList;
     const task = newTaskList[from][taskID];
@@ -84,6 +90,7 @@ class App extends Component {
             toDoList={toDo}
             shiftTask={this.shiftTask}
             deleteTask={this.deleteTask}
+            playSound= {this.playSound}
           />
         </Row>
         <Row>
@@ -93,6 +100,10 @@ class App extends Component {
             deleteTask={this.deleteTask}
           />
         </Row>
+        <audio>
+          <source src='./media/hand-bell.flac'></source>
+          Your browser doesn't support this media file.
+        </audio>
       </Container>
     );
   }
