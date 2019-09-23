@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./styles/App.css";
 
+import HandBellFlac from './media/hand-bell.flac';
+import HandBellWav from './media/hand-bell.wav';
+
 import ListTitle from "./components/ListTitle.js";
 import CompletedList from "./components/CompletedList.js";
 import ToDoList from "./components/ToDoList.js";
@@ -100,8 +103,9 @@ class App extends Component {
             deleteTask={this.deleteTask}
           />
         </Row>
-        <audio>
-          <source src='./media/hand-bell.flac'></source>
+        <audio id='beep' preload='auto'>
+          <source src={HandBellFlac}></source>
+          <source src={HandBellWav}></source>
           Your browser doesn't support this media file.
         </audio>
       </Container>
