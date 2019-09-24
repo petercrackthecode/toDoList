@@ -2,6 +2,7 @@ import React from "react";
 import { Task } from "./Task.js";
 
 import ListGroup from "react-bootstrap/ListGroup";
+import Collapse from "react-bootstrap/Collapse";
 
 import { Toggle } from "./ToggleBtn.js";
 
@@ -28,9 +29,11 @@ export default function CompletedList(props) {
         listLength={completedList ? completedList.length : 0}
         toggle={props.toggleCompleted}
       />
-      <ListGroup as="ul" className="list-unstyled col-md-8 offset-md-2">
-        {completedList ? completedList : <li key={-1}>Empty</li>}
-      </ListGroup>
+      <Collapse in={props.isCompletedOpen}>
+        <ListGroup as="ul" className="list-unstyled col-md-8 offset-md-2">
+          {completedList ? completedList : <li key={-1}>Empty</li>}
+        </ListGroup>
+      </Collapse>
     </fieldset>
   );
 }
