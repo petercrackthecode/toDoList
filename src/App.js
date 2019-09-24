@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./styles/App.css";
 
-import HandBellFlac from './media/hand-bell.flac';
-import HandBellWav from './media/hand-bell.wav';
+import HandBellFlac from "./media/hand-bell.flac";
+import HandBellWav from "./media/hand-bell.wav";
 
 import ListTitle from "./components/ListTitle.js";
 import CompletedList from "./components/CompletedList.js";
@@ -32,15 +32,29 @@ class App extends Component {
     m_taskList: {
       toDo: tasksWithID, // tasksWithID is an object.
       completed: {}
-    }
+    },
+    m_isToDoOpen: true,
+    m_isCompletedOpen: true
   };
 
-  playSound= async () => {
-    const audio= document.getElementById('beep');
+  playSound = async () => {
+    const audio = document.getElementById("beep");
     if (!audio) return;
-    audio.currentTime= 0;
+    audio.currentTime = 0;
     audio.play();
-  }
+  };
+
+  toggleToDo = async () => {
+    this.setState(currentState => ({
+      m_isToDoOpen: !currentState.m_isToDoOpen
+    }));
+  };
+
+  toggleCompleted = async () => {
+    this.setState(currentState => ({
+      m_isCompletedOpen: !currentState.m_isCompletedOpen
+    }));
+  };
 
   deleteTask = async (from = "", taskID = "") => {
     let newTaskList = this.state.m_taskList;
@@ -49,7 +63,6 @@ class App extends Component {
   };
 
   shiftTask = async (from = "", to = "", taskID = "") => {
-
     let newTaskList = this.state.m_taskList;
     const task = newTaskList[from][taskID];
     delete newTaskList[from][taskID];
@@ -91,19 +104,23 @@ class App extends Component {
         <Row>
           <ToDoList
             toDoList={toDo}
+            toggleToDo= {this.toggleToDo}
+            isToDoOpen={this.state.m_isToDoOpen}
             shiftTask={this.shiftTask}
             deleteTask={this.deleteTask}
-            playSound= {this.playSound}
+            playSound={this.playSound}
           />
         </Row>
         <Row>
           <CompletedList
             completedList={completed}
+            toggleCompleted={this.toggleCompleted}
+            isCompletedOpen={this.state.m_isCompletedOpen}
             shiftTask={this.shiftTask}
             deleteTask={this.deleteTask}
           />
         </Row>
-        <audio id='beep' preload='auto'>
+        <audio id="beep" preload="auto">
           <source src={HandBellFlac}></source>
           <source src={HandBellWav}></source>
           Your browser doesn't support this media file.

@@ -26,6 +26,7 @@ export default function CompletedList(props) {
       <Toggle
         type="completed"
         listLength={completedList ? completedList.length : 0}
+        toggle={props.toggleCompleted}
       />
       <ListGroup as="ul" className="list-unstyled col-md-8 offset-md-2">
         {completedList ? completedList : <li key={-1}>Empty</li>}
