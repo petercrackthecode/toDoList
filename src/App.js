@@ -30,7 +30,7 @@ class App extends Component {
     m_listTitle: "My new list",
     m_input: "",
     m_taskList: {
-      toDo: tasksWithID,
+      toDo: Object.assign({}, tasksWithID),
       completed: {}
     },
     m_isToDoOpen: true,

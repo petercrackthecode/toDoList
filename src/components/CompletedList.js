@@ -6,7 +6,7 @@ import Collapse from "react-bootstrap/Collapse";
 
 import { Toggle } from "./ToggleBtn.js";
 
-import isEmptyObject from "../lambdaFnc/isEmptyObject.js";
+import {isEmptyObject} from "../lambdaFnc/fnc.js";
 
 export default function CompletedList(props) {
   const completedList = !isEmptyObject(props.completedList)
