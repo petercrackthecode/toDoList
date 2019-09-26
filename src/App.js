@@ -8,7 +8,7 @@ import ListTitle from "./components/ListTitle.js";
 import CompletedList from "./components/CompletedList.js";
 import ToDoList from "./components/ToDoList.js";
 import Input from "./components/Input.js";
-import ID from "./lambdaFnc/ID.js";
+import ID from "./lambdaFnc/fnc.js";
 
 // import from React Bootstrap
 import Container from "react-bootstrap/Container";
@@ -30,7 +30,7 @@ class App extends Component {
     m_listTitle: "My new list",
     m_input: "",
     m_taskList: {
-      toDo: tasksWithID, 
+      toDo: tasksWithID,
       completed: {}
     },
     m_isToDoOpen: true,
