@@ -25,7 +25,11 @@ export default function ToDoList(props) {
 
   return (
     <fieldset id="to-do-list" className="row list">
-      <Toggle type="toDo" toggle={props.toggleToDo} listLength={toDoList ? toDoList.length : 0} />
+      <Toggle
+        type="toDo"
+        toggle={props.toggleToDo}
+        listLength={toDoList ? toDoList.length : 0}
+      />
       <Collapse in={props.isToDoOpen}>
         <ListGroup as="ul" className="list-unstyled col-md-8 offset-md-2">
           {toDoList ? toDoList : <li key={0}>Empty</li>}

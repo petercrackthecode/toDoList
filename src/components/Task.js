@@ -10,18 +10,18 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 export function Task(props) {
   const shiftTask = async () => {
     const from = props.type;
-    const to = (from === "completed") ? "toDo" : "completed";
+    const to = from === "completed" ? "toDo" : "completed";
 
     props.shiftTask(from, to, props.taskID);
   };
 
-  const m_onClick= async () => {
+  const m_onClick = async () => {
     shiftTask();
-    props.type === 'toDo' ? props.playSound() : null;
+    props.type === "toDo" ? props.playSound() : null;
   };
 
-  const deleteTask= async () => {
-    const from= props.type;
+  const deleteTask = async () => {
+    const from = props.type;
     props.deleteTask(from, props.taskID);
   };
 
@@ -40,7 +40,11 @@ export function Task(props) {
         readOnly
       />
       {props.type === "completed" ? <strike>{props.task}</strike> : props.task}
-      <FontAwesomeIcon className="float-right mr-3 mt-1 trash-can" icon={faTrash} onClick={deleteTask}/>
+      <FontAwesomeIcon
+        className="float-right mr-3 mt-1 trash-can"
+        icon={faTrash}
+        onClick={deleteTask}
+      />
     </ListGroup.Item>
   );
 }

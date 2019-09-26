@@ -104,7 +104,7 @@ class App extends Component {
         <Row>
           <ToDoList
             toDoList={toDo}
-            toggleToDo= {this.toggleToDo}
+            toggleToDo={this.toggleToDo}
             isToDoOpen={this.state.m_isToDoOpen}
             shiftTask={this.shiftTask}
             deleteTask={this.deleteTask}
