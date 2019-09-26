@@ -14,18 +14,23 @@
   background-color: #333;
   /* Modern browsers */
 }
+
 #app div.row #list-title {
   border: 3px solid red;
 }
+
 #app div.row .list {
   width: 100%;
 }
+
 #app div.row .list .toggle {
   position: relative;
 }
+
 #app div.row .list .toggle button {
   z-index: 2;
 }
+
 #app div.row .list .toggle hr {
   position: absolute;
   top: 10%;
@@ -33,14 +38,94 @@
   width: 100%;
   z-index: 1;
 }
+
 #app div.row .list ul li {
   border: 3px solid black;
   border-radius: 10%;
   color: white;
   background-color: black;
 }
+
 #app div.row .list ul li path:hover {
   cursor: pointer;
 }
+
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
+/*# sourceMappingURL=App.css.map */
 
 /*# sourceMappingURL=App.css.map */
