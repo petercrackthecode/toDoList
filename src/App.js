@@ -30,7 +30,7 @@ class App extends Component {
     m_listTitle: "My new list",
     m_input: "",
     m_taskList: {
-      toDo: tasksWithID, // tasksWithID is an object.
+      toDo: tasksWithID, 
       completed: {}
     },
     m_isToDoOpen: true,
