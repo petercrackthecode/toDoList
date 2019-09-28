@@ -14,27 +14,53 @@ import ID from "./lambdaFnc/fnc.js";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
-const defaultTasksList = [
+const defaultToDo = [
   "Build rocket",
   "Cover a high-speed wifi connection globally",
   "Meet alien",
   "Invent autodriving cars' system"
 ];
 
-let tasksWithID = {};
+let toDoWithID = {};
+let completedWithID= {};
 
-defaultTasksList.map(aTask => (tasksWithID[ID()] = aTask));
+defaultToDo.map(aTask => (toDoWithID[ID()] = aTask));
+
+console.log(JSON.parse(localStorage.getItem('toDo')) === null);
+
+let hello= localStorage.getItem('toDo');
+
+console.log(hello);
+
+console.log(localStorage.getItem('toDo'));
+
+if (!localStorage.getItem('completed')) localStorage.setItem('completed', JSON.stringify(completedWithID));
+
+/*
+const m_toDo= JSON.parse(localStorage.getItem('toDo'));
+const m_completed= JSON.parse(localStorage.getItem('completed'));
+*/
 
 class App extends Component {
   state = {
     m_listTitle: "My new list",
     m_input: "",
-    m_taskList: {
-      toDo: Object.assign({}, tasksWithID),
-      completed: {}
-    },
+    m_toDo: '',
+    m_completed: '',
     m_isToDoOpen: true,
     m_isCompletedOpen: true
+  };
+
+  componentDidMount= async () => {
+    await this.setState({
+      m_toDo: JSON.parse(localStorage.getItem('toDo')),
+      m_completed: JSON.parse(localStorage.getItem('completed'))
+    });
+  };
+
+  componentDidUpdate= async () => {
+    localStorage.setItem('toDo', JSON.stringify(this.state.m_toDo));
+    localStorage.setItem('completed', JSON.stringify(this.state.m_completed));
   };
 
   playSound = async () => {
@@ -57,24 +83,23 @@ class App extends Component {
   };
 
   deleteTask = async (from = "", taskID = "") => {
-    let newTaskList = this.state.m_taskList;
-    delete newTaskList[from][taskID];
-    this.setState({ m_taskList: newTaskList });
+    let newState= this.state;
+    delete newState[from][taskID];
+    this.setState(newState);
   };
 
   shiftTask = async (from = "", to = "", taskID = "") => {
-    let newTaskList = this.state.m_taskList;
-    const task = newTaskList[from][taskID];
-    delete newTaskList[from][taskID];
+    let newState= this.state;
+    const task= newState[from][taskID];
+    delete newState[from][taskID];
+    newState[to][taskID]= task;
 
-    newTaskList[to][taskID] = task;
-
-    this.setState({ m_taskList: newTaskList });
+    this.setState(newState);
   };
 
   addNewTask = async newTask => {
     let currentState = this.state;
-    currentState.m_taskList.toDo[ID()] = newTask;
+    currentState.m_toDo[ID()] = newTask;
     this.setState(currentState);
   };
 
@@ -85,8 +110,8 @@ class App extends Component {
   };
 
   render() {
-    const { m_listTitle, m_taskList } = this.state;
-    const { toDo, completed } = m_taskList;
+    const { m_listTitle} = this.state;
+    const toDo= this.state.m_toDo, completed= this.state.m_completed;
 
     return (
       <Container id="app">
