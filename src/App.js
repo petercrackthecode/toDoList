@@ -9,6 +9,7 @@ import CompletedList from "./components/CompletedList.js";
 import ToDoList from "./components/ToDoList.js";
 import Input from "./components/Input.js";
 import ID from "./lambdaFnc/fnc.js";
+import { isEmptyObject } from "./lambdaFnc/fnc.js";
 
 // import from React Bootstrap
 import Container from "react-bootstrap/Container";
@@ -22,45 +23,47 @@ const defaultToDo = [
 ];
 
 let toDoWithID = {};
-let completedWithID= {};
+let completedWithID = {};
 
 defaultToDo.map(aTask => (toDoWithID[ID()] = aTask));
 
-console.log(JSON.parse(localStorage.getItem('toDo')) === null);
+// check if local storage already exist, if not then initiate it with the default list
+if (!localStorage.getItem("toDo"))
+  localStorage.setItem("toDo", JSON.stringify(toDoWithID));
 
-let hello= localStorage.getItem('toDo');
+if (!localStorage.getItem("completed"))
+  localStorage.setItem("completed", JSON.stringify(completedWithID));
 
-console.log(hello);
+const currentToDo = isEmptyObject(localStorage.getItem("toDo"))
+  ? ""
+  : JSON.parse(localStorage.getItem("toDo"));
+const currentCompleted = isEmptyObject(localStorage.getItem("completed"))
+? ""
+: JSON.parse(localStorage.getItem("completed"));
 
-console.log(localStorage.getItem('toDo'));
-
-if (!localStorage.getItem('completed')) localStorage.setItem('completed', JSON.stringify(completedWithID));
-
-/*
-const m_toDo= JSON.parse(localStorage.getItem('toDo'));
-const m_completed= JSON.parse(localStorage.getItem('completed'));
-*/
+if (!localStorage.getItem("completed"))
+  localStorage.setItem("completed", JSON.stringify(completedWithID));
 
 class App extends Component {
   state = {
     m_listTitle: "My new list",
     m_input: "",
-    m_toDo: '',
-    m_completed: '',
+    m_toDo: currentToDo,
+    m_completed: currentCompleted,
     m_isToDoOpen: true,
     m_isCompletedOpen: true
   };
 
-  componentDidMount= async () => {
+  componentDidMount = async () => {
     await this.setState({
-      m_toDo: JSON.parse(localStorage.getItem('toDo')),
-      m_completed: JSON.parse(localStorage.getItem('completed'))
+      m_toDo: JSON.parse(localStorage.getItem("toDo")),
+      m_completed: JSON.parse(localStorage.getItem("completed"))
     });
   };
 
-  componentDidUpdate= async () => {
-    localStorage.setItem('toDo', JSON.stringify(this.state.m_toDo));
-    localStorage.setItem('completed', JSON.stringify(this.state.m_completed));
+  componentDidUpdate = async () => {
+    localStorage.setItem("toDo", JSON.stringify(this.state.m_toDo));
+    localStorage.setItem("completed", JSON.stringify(this.state.m_completed));
   };
 
   playSound = async () => {
@@ -83,16 +86,16 @@ class App extends Component {
   };
 
   deleteTask = async (from = "", taskID = "") => {
-    let newState= this.state;
+    let newState = this.state;
     delete newState[from][taskID];
     this.setState(newState);
   };
 
   shiftTask = async (from = "", to = "", taskID = "") => {
-    let newState= this.state;
-    const task= newState[from][taskID];
+    let newState = this.state;
+    const task = newState[from][taskID];
     delete newState[from][taskID];
-    newState[to][taskID]= task;
+    newState[to][taskID] = task;
 
     this.setState(newState);
   };
@@ -110,8 +113,9 @@ class App extends Component {
   };
 
   render() {
-    const { m_listTitle} = this.state;
-    const toDo= this.state.m_toDo, completed= this.state.m_completed;
+    const { m_listTitle } = this.state;
+    const toDo = this.state.m_toDo,
+      completed = this.state.m_completed;
 
     return (
       <Container id="app">
