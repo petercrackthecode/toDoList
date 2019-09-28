@@ -16,7 +16,7 @@ export default function CompletedList(props) {
           taskID={id}
           key={id}
           shiftTask={props.shiftTask}
-          type="completed"
+          type="m_completed"
           deleteTask={props.deleteTask}
         />
       ))
@@ -25,7 +25,7 @@ export default function CompletedList(props) {
   return (
     <fieldset id="completed-list" className="row list mt-4">
       <Toggle
-        type="completed"
+        type="m_completed"
         listLength={completedList ? completedList.length : 0}
         toggle={props.toggleCompleted}
       />

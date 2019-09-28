@@ -16,7 +16,7 @@ export default function ToDoList(props) {
           taskID={id}
           key={id}
           shiftTask={props.shiftTask}
-          type="toDo"
+          type="m_toDo"
           deleteTask={props.deleteTask}
           playSound={props.playSound}
         />

@@ -41,9 +41,6 @@ const currentCompleted = isEmptyObject(localStorage.getItem("completed"))
 ? ""
 : JSON.parse(localStorage.getItem("completed"));
 
-if (!localStorage.getItem("completed"))
-  localStorage.setItem("completed", JSON.stringify(completedWithID));
-
 class App extends Component {
   state = {
     m_listTitle: "My new list",
@@ -93,6 +90,9 @@ class App extends Component {
 
   shiftTask = async (from = "", to = "", taskID = "") => {
     let newState = this.state;
+    console.log(newState);
+    console.log(from);
+    console.log(taskID);
     const task = newState[from][taskID];
     delete newState[from][taskID];
     newState[to][taskID] = task;
