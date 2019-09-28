@@ -1,8 +1,6 @@
 import React from "react";
 
 import ListGroup from "react-bootstrap/ListGroup";
-import Accordion from "react-bootstrap/Accordion";
-import Card from "react-bootstrap/Card";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -17,7 +15,7 @@ export function Task(props) {
 
   const m_onClick = async () => {
     shiftTask();
-    props.type === "toDo" ? props.playSound() : null;
+    props.type === "toDo" ? props.playSound() : (function doNothing() {})();
   };
 
   const deleteTask = async () => {
