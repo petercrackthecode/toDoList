@@ -26,7 +26,7 @@ export default function ToDoList(props) {
   return (
     <fieldset id="to-do-list" className="row list">
       <Toggle
-        type="toDo"
+        type="m_toDo"
         toggle={props.toggleToDo}
         listLength={toDoList ? toDoList.length : 0}
       />
