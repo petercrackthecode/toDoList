@@ -51,13 +51,6 @@ class App extends Component {
     m_isCompletedOpen: true
   };
 
-  componentDidMount = async () => {
-    await this.setState({
-      m_toDo: JSON.parse(localStorage.getItem("toDo")),
-      m_completed: JSON.parse(localStorage.getItem("completed"))
-    });
-  };
-
   componentDidUpdate = async () => {
     localStorage.setItem("toDo", JSON.stringify(this.state.m_toDo));
     localStorage.setItem("completed", JSON.stringify(this.state.m_completed));
