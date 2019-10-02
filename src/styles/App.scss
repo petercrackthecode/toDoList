@@ -5,12 +5,16 @@
 }
 
 #app {
+    background: rgb(0,5,36);
+    background: linear-gradient(90deg, rgba(0,5,36,1) 0%, rgba(0,127,255,1) 65%);
+    
     hr {
         border: none;
         height: 2px;
         /* Set the hr color */
         color: #333; /* old IE */
-        background-color: #333; /* Modern browsers */
+        background-color: rgb(235, 220, 220); /* Modern browsers */
+        
     }
 
     div.row {
