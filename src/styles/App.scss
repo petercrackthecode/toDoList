@@ -10,6 +10,8 @@
     background: linear-gradient(90deg, rgba(0,5,36,1) 0%, rgba(0,127,255,1) 65%);
     */
 
+    background-color: black;
+
     hr {
         border: none;
         height: 2px;
@@ -20,6 +22,53 @@
     }
 
     div.row {
+        .switch {
+            padding: 20px;
+            display: block;
+            text-align: center;
+            border: 1px solid white;
+            border-radius: 20px;
+
+
+            strong {
+                color: white;
+            }
+
+            input {
+                display: none;
+                
+                &:checked + .theme {
+                    background-color: white;
+                }
+
+                &:checked + .theme::before {
+                    left: 64px;
+                }                
+            }
+
+            .theme {
+                width: 100px;
+                height: 40px;
+                position: relative;
+                background: #ccc;
+                display: block;
+                cursor: pointer;
+                transition: background-color 0.4s;
+                border-radius: 20px;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 32px;
+                    height: 32px;
+                    left: 4px;
+                    bottom: 4px;
+                    background: black;
+                    border-radius: 50%;
+                }
+            }
+        }
+
         #list-title {
             @include Border(red);
         }
@@ -44,10 +93,10 @@
 
             ul {
                 li {
-                    @include Border(black);
+                    @include Border(white);
+                    padding: 0.2em;
                     border-radius: 10%;
                     color: white;
-                    background-color: black;
 
                     path:hover {
                         cursor: pointer;

@@ -38,8 +38,8 @@ const currentToDo = isEmptyObject(localStorage.getItem("toDo"))
   ? ""
   : JSON.parse(localStorage.getItem("toDo"));
 const currentCompleted = isEmptyObject(localStorage.getItem("completed"))
-? ""
-: JSON.parse(localStorage.getItem("completed"));
+  ? ""
+  : JSON.parse(localStorage.getItem("completed"));
 
 class App extends Component {
   state = {
@@ -49,7 +49,7 @@ class App extends Component {
     m_completed: currentCompleted,
     m_isToDoOpen: true,
     m_isCompletedOpen: true,
-    m_isDarkMode: true,
+    m_isDarkModeOn: true
   };
 
   componentDidUpdate = async () => {
@@ -74,6 +74,12 @@ class App extends Component {
     this.setState(currentState => ({
       m_isCompletedOpen: !currentState.m_isCompletedOpen
     }));
+  };
+
+  toggleDarkMode = async () => {
+    this.setState(currentState => {
+      m_isDarkModeOn: !currentState.m_isDarkModeOn
+    });
   };
 
   deleteTask = async (from = "", taskID = "") => {
@@ -113,6 +119,17 @@ class App extends Component {
 
     return (
       <Container id="app">
+        <Row>
+          <label className="switch col-md-2 offset-md-5">
+            <strong>Dark mode</strong>
+            <input
+              type="checkbox"
+              onChange={this.toggleDarkMode}
+              checked={this.state.m_isDarkModeOn ? "checked" : null}
+            />
+            <span className='theme'></span>
+          </label>
+        </Row>
         <Row>
           <ListTitle listTitle={m_listTitle} />
         </Row>

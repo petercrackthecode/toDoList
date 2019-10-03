@@ -10,6 +10,7 @@
   background: rgb(0,5,36);
   background: linear-gradient(90deg, rgba(0,5,36,1) 0%, rgba(0,127,255,1) 65%);
   */
+  background-color: black;
 }
 #app hr {
   border: none;
@@ -19,6 +20,45 @@
   /* old IE */
   background-color: #ebdcdc;
   /* Modern browsers */
+}
+#app div.row .switch {
+  padding: 20px;
+  display: block;
+  text-align: center;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+#app div.row .switch strong {
+  color: white;
+}
+#app div.row .switch input {
+  display: none;
+}
+#app div.row .switch input:checked + .theme {
+  background-color: white;
+}
+#app div.row .switch input:checked + .theme::before {
+  left: 64px;
+}
+#app div.row .switch .theme {
+  width: 100px;
+  height: 40px;
+  position: relative;
+  background: #ccc;
+  display: block;
+  cursor: pointer;
+  transition: background-color 0.4s;
+  border-radius: 20px;
+}
+#app div.row .switch .theme::before {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  left: 4px;
+  bottom: 4px;
+  background: black;
+  border-radius: 50%;
 }
 #app div.row #list-title {
   border: 3px solid red;
@@ -40,10 +80,10 @@
   z-index: 1;
 }
 #app div.row .list ul li {
-  border: 3px solid black;
+  border: 3px solid white;
+  padding: 0.2em;
   border-radius: 10%;
   color: white;
-  background-color: black;
 }
 #app div.row .list ul li path:hover {
   cursor: pointer;
