@@ -64,6 +64,7 @@ class App extends Component {
     audio.play();
   };
 
+  /*
   toggleToDo = async () => {
     this.setState(currentState => ({
       m_isToDoOpen: !currentState.m_isToDoOpen
@@ -81,11 +82,14 @@ class App extends Component {
       m_isDarkModeOn: !currentState.m_isDarkModeOn
     }));
   };
+  */
 
   async toggle(param) {
-    this.setState(currentState => ({
-      [param]: !currentState[param]
+    await this.setState(currState => ({
+      [param]: !currState[param]
     }));
+
+    console.log("DarkMode is " + (this.state.m_isDarkModeOn ? 'true' : 'false'));
   }
 
   deleteTask = async (from = "", taskID = "") => {
@@ -130,7 +134,7 @@ class App extends Component {
             <strong>Dark mode</strong>
             <input
               type="checkbox"
-              onChange={this.toggle("m_isDarkModeOn")}
+              onChange={() => this.toggle("m_isDarkModeOn")}
               readOnly
             />
             <span className='theme'></span>
@@ -150,7 +154,7 @@ class App extends Component {
         <Row>
           <ToDoList
             toDoList={toDo}
-            toggleToDo={this.toggleToDo}
+            toggleToDo={() => this.toggle("m_isToDoOpen")}
             isToDoOpen={this.state.m_isToDoOpen}
             shiftTask={this.shiftTask}
             deleteTask={this.deleteTask}
@@ -160,7 +164,7 @@ class App extends Component {
         <Row>
           <CompletedList
             completedList={completed}
-            toggleCompleted={this.toggleCompleted}
+            toggleCompleted={() => this.toggle("m_isCompletedOpen")}
             isCompletedOpen={this.state.m_isCompletedOpen}
             shiftTask={this.shiftTask}
             deleteTask={this.deleteTask}
