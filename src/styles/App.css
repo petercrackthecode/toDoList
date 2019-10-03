@@ -6,8 +6,10 @@
 }
 
 #app {
-  background: #000524;
-  background: linear-gradient(90deg, #000524 0%, #007fff 65%);
+  /*
+  background: rgb(0,5,36);
+  background: linear-gradient(90deg, rgba(0,5,36,1) 0%, rgba(0,127,255,1) 65%);
+  */
 }
 #app hr {
   border: none;
