@@ -35,7 +35,7 @@
   display: none;
 }
 #app div.row .switch input:checked + .theme {
-  background-color: white;
+  background-color: black;
 }
 #app div.row .switch input:checked + .theme::before {
   left: 64px;
@@ -43,8 +43,9 @@
 #app div.row .switch .theme {
   width: 100px;
   height: 40px;
+  border: 1px solid white;
   position: relative;
-  background: #ccc;
+  background-color: black;
   display: block;
   cursor: pointer;
   transition: background-color 0.4s;
@@ -57,7 +58,7 @@
   height: 32px;
   left: 4px;
   bottom: 4px;
-  background: black;
+  background: white;
   border-radius: 50%;
 }
 #app div.row #list-title {
