@@ -23,13 +23,15 @@
 }
 #app div.row .switch {
   padding: 20px;
-  display: block;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border: 1px solid white;
   border-radius: 20px;
 }
 #app div.row .switch strong {
   color: white;
+  padding: 0px;
 }
 #app div.row .switch input {
   display: none;

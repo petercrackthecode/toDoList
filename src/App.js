@@ -77,9 +77,9 @@ class App extends Component {
   };
 
   toggleDarkMode = async () => {
-    this.setState(currentState => {
+    this.setState(currentState => ({
       m_isDarkModeOn: !currentState.m_isDarkModeOn
-    });
+    }));
   };
 
   deleteTask = async (from = "", taskID = "") => {
@@ -120,12 +120,12 @@ class App extends Component {
     return (
       <Container id="app">
         <Row>
-          <label className="switch col-md-2 offset-md-5">
+          <label className="switch col-md-2 offset-md-5 col-lg-2 offset-lg-5 col-sm-2 offset-sm-5">
             <strong>Dark mode</strong>
             <input
               type="checkbox"
               onChange={this.toggleDarkMode}
-              checked={this.state.m_isDarkModeOn ? "checked" : null}
+              readOnly
             />
             <span className='theme'></span>
           </label>
