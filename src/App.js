@@ -48,7 +48,8 @@ class App extends Component {
     m_toDo: currentToDo,
     m_completed: currentCompleted,
     m_isToDoOpen: true,
-    m_isCompletedOpen: true
+    m_isCompletedOpen: true,
+    m_isDarkMode: true,
   };
 
   componentDidUpdate = async () => {
