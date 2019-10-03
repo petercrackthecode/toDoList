@@ -82,6 +82,12 @@ class App extends Component {
     }));
   };
 
+  async toggle(param) {
+    this.setState(currentState => ({
+      [param]: !currentState[param]
+    }));
+  }
+
   deleteTask = async (from = "", taskID = "") => {
     let newState = this.state;
     delete newState[from][taskID];
@@ -124,7 +130,7 @@ class App extends Component {
             <strong>Dark mode</strong>
             <input
               type="checkbox"
-              onChange={this.toggleDarkMode}
+              onChange={this.toggle("m_isDarkModeOn")}
               readOnly
             />
             <span className='theme'></span>
