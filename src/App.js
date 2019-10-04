@@ -15,6 +15,24 @@ import { isEmptyObject } from "./lambdaFnc/fnc.js";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
+import Darkmode from 'darkmode-js';
+
+var options = {
+  bottom: '64px', // default: '32px'
+  right: 'unset', // default: '32px'
+  left: '32px', // default: 'unset'
+  time: '0.5s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: false, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+};
+
+new Darkmode().showWidget(options);
+
 const defaultToDo = [
   "Build rocket",
   "Cover a high-speed wifi connection globally",
@@ -72,7 +90,7 @@ class App extends Component {
     console.log("DarkMode is " + this.state.m_isDarkModeOn);
   };
 
-  toggle= async (param) => {
+  toggle = async param => {
     await this.setState(currState => ({
       [param]: !currState[param]
     }));
@@ -116,14 +134,10 @@ class App extends Component {
     return (
       <Container id="app">
         <Row>
-          <label className="switch col-md-2 offset-md-5 col-lg-2 offset-lg-5 col-sm-2 offset-sm-5">
+          <label className="switch col-md-4 offset-md-2 col-lg-2 offset-lg-5 col-sm-5 offset-sm-1">
             <strong>Dark mode</strong>
-            <input
-              type="checkbox"
-              onChange={this.toggleDarkMode}
-              readOnly
-            />
-            <span className='theme'></span>
+            <input type="checkbox" onChange={this.toggleDarkMode} readOnly />
+            <span className="theme"></span>
           </label>
         </Row>
         <Row>

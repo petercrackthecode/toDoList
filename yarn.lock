@@ -2218,6 +2218,11 @@ damerau-levenshtein@^1.0.0:
   resolved "https://registry.yarnpkg.com/damerau-levenshtein/-/damerau-levenshtein-1.0.5.tgz#780cf7144eb2e8dbd1c3bb83ae31100ccc31a414"
   integrity sha512-CBCRqFnpu715iPmw1KrdOrzRqbdFwQTwAWyyyYS42+iAgHCuXZ+/TdMgQkUENPomxEz9z1BEzuQU2Xw0kUuAgA==
 
+darkmode-js@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/darkmode-js/-/darkmode-js-1.5.0.tgz#307a15f0fb24cd5e6ec368f92124f2aa7bab6414"
+  integrity sha512-Y8wKnrJ9dOnwYECPhcEERysJdJcSzpZdcD6A2oMa534u+X6spirqd5J9EEwoyJFnY7OU/0BRe3gC0K69r9j7fA==
+
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"

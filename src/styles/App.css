@@ -5,34 +5,23 @@
   padding: 5rem;
 }
 
-#app {
-  /*
-  background: rgb(0,5,36);
-  background: linear-gradient(90deg, rgba(0,5,36,1) 0%, rgba(0,127,255,1) 65%);
-  */
-  background-color: black;
-}
 #app hr {
   border: none;
   height: 2px;
   /* Set the hr color */
-  color: #333;
-  /* old IE */
-  background-color: #ebdcdc;
-  /* Modern browsers */
 }
 #app div.row .switch {
   padding: 10px;
   display: block;
   text-align: center;
-  border: 1px solid white;
+  border-width: 2px;
+  border-style: solid;
   border-radius: 20px;
 }
 #app div.row .switch > * {
   margin: auto;
 }
 #app div.row .switch strong {
-  color: white;
   padding: 0px;
   margin: auto;
 }
@@ -68,7 +57,6 @@
 }
 #app div.row #list-title {
   border: 3px solid red;
-  color: white;
 }
 #app div.row .list {
   width: 100%;
@@ -87,10 +75,10 @@
   z-index: 1;
 }
 #app div.row .list ul li {
-  border: 3px solid white;
+  border-width: 2px;
+  border-style: inset;
   padding: 0.2em;
   border-radius: 10%;
-  color: white;
 }
 #app div.row .list ul li path:hover {
   cursor: pointer;
