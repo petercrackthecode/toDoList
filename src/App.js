@@ -133,6 +133,7 @@ class App extends Component {
 
     return (
       <Container id="app">
+      {/*
         <Row>
           <label className="switch col-md-4 offset-md-2 col-lg-2 offset-lg-5 col-sm-5 offset-sm-1">
             <strong>Dark mode</strong>
@@ -140,6 +141,7 @@ class App extends Component {
             <span className="theme"></span>
           </label>
         </Row>
+        */}
         <Row>
           <ListTitle listTitle={m_listTitle} />
         </Row>

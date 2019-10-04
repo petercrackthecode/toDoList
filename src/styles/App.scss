@@ -32,7 +32,6 @@
             }
 
             strong {
-                // color: white;
                 padding: 0px;
                 margin: auto;
             }
@@ -75,7 +74,6 @@
 
         #list-title {
             @include Border(red);
-            // color: white;
         }
 
         .list {
