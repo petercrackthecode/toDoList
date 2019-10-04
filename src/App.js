@@ -64,20 +64,6 @@ class App extends Component {
     audio.play();
   };
 
-  /*
-  toggleToDo = async () => {
-    this.setState(currentState => ({
-      m_isToDoOpen: !currentState.m_isToDoOpen
-    }));
-  };
-
-  toggleCompleted = async () => {
-    this.setState(currentState => ({
-      m_isCompletedOpen: !currentState.m_isCompletedOpen
-    }));
-  };
-  */
-
   toggleDarkMode = async () => {
     this.setState(currentState => ({
       m_isDarkModeOn: !currentState.m_isDarkModeOn
