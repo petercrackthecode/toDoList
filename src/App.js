@@ -49,7 +49,7 @@ class App extends Component {
     m_completed: currentCompleted,
     m_isToDoOpen: true,
     m_isCompletedOpen: true,
-    m_isDarkModeOn: true
+    m_isDarkModeOn: false
   };
 
   componentDidUpdate = async () => {
@@ -76,21 +76,21 @@ class App extends Component {
       m_isCompletedOpen: !currentState.m_isCompletedOpen
     }));
   };
+  */
 
   toggleDarkMode = async () => {
     this.setState(currentState => ({
       m_isDarkModeOn: !currentState.m_isDarkModeOn
     }));
-  };
-  */
 
-  async toggle(param) {
+    console.log("DarkMode is " + this.state.m_isDarkModeOn);
+  };
+
+  toggle= async (param) => {
     await this.setState(currState => ({
       [param]: !currState[param]
     }));
-
-    console.log("DarkMode is " + (this.state.m_isDarkModeOn ? 'true' : 'false'));
-  }
+  };
 
   deleteTask = async (from = "", taskID = "") => {
     let newState = this.state;
@@ -134,7 +134,7 @@ class App extends Component {
             <strong>Dark mode</strong>
             <input
               type="checkbox"
-              onChange={() => this.toggle("m_isDarkModeOn")}
+              onChange={this.toggleDarkMode}
               readOnly
             />
             <span className='theme'></span>
@@ -154,7 +154,7 @@ class App extends Component {
         <Row>
           <ToDoList
             toDoList={toDo}
-            toggleToDo={() => this.toggle("m_isToDoOpen")}
+            toggleToDo={this.toggle}
             isToDoOpen={this.state.m_isToDoOpen}
             shiftTask={this.shiftTask}
             deleteTask={this.deleteTask}
@@ -164,7 +164,7 @@ class App extends Component {
         <Row>
           <CompletedList
             completedList={completed}
-            toggleCompleted={() => this.toggle("m_isCompletedOpen")}
+            toggleCompleted={this.toggle}
             isCompletedOpen={this.state.m_isCompletedOpen}
             shiftTask={this.shiftTask}
             deleteTask={this.deleteTask}
