@@ -103,7 +103,7 @@
 
             ul {
                 li {
-                    @include BorderNoColor(2px, inset);
+                    @include BorderNoColor(3px, solid);
                     padding: 0.2em;
                     border-radius: 10%;
 

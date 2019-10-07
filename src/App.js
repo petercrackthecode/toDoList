@@ -17,7 +17,9 @@ import Row from "react-bootstrap/Row";
 
 import Darkmode from 'darkmode-js';
 
-var options = {
+
+
+let options = {
   bottom: '90%', // default: '32px'
   right: '32px', // default: '32px'
   left: 'unset', // default: 'unset'

@@ -89,8 +89,8 @@
   z-index: 1;
 }
 #app div.row .list ul li {
-  border-width: 2px;
-  border-style: inset;
+  border-width: 3px;
+  border-style: solid;
   padding: 0.2em;
   border-radius: 10%;
 }
