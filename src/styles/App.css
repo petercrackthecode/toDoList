@@ -10,50 +10,60 @@
   height: 2px;
   /* Set the hr color */
 }
-#app div.row .switch {
-  padding: 10px;
-  display: block;
-  text-align: center;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 20px;
-}
-#app div.row .switch > * {
-  margin: auto;
-}
-#app div.row .switch strong {
-  padding: 0px;
-  margin: auto;
-}
-#app div.row .switch input {
-  display: none;
-}
-#app div.row .switch input:checked + .theme {
-  background-color: black;
-}
-#app div.row .switch input:checked + .theme::before {
-  left: 64px;
-}
-#app div.row .switch .theme {
-  width: 100px;
-  height: 40px;
-  border: 1px solid white;
-  position: relative;
-  background-color: black;
-  display: block;
-  cursor: pointer;
-  transition: background-color 0.4s;
-  border-radius: 20px;
-}
-#app div.row .switch .theme::before {
-  content: "";
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  left: 4px;
-  bottom: 4px;
-  background: white;
-  border-radius: 50%;
+#app div.row {
+  /*
+  .switch {
+      padding: 10px;
+      display: block;
+      text-align: center;
+      @include BorderNoColor(2px, solid);
+      border-radius: 20px;
+
+      & > * {
+          margin: auto;
+      }
+
+      strong {
+          padding: 0px;
+          margin: auto;
+      }
+
+      input {
+          display: none;
+
+          &:checked + .theme {
+              background-color: black;
+          }
+
+          &:checked + .theme::before {
+              left: 64px;
+          }                
+      }
+
+      .theme {
+          width: 100px;
+          height: 40px;
+          border: 1px solid white;
+          position: relative;
+          background-color: black;
+          display: block;
+          cursor: pointer;
+          transition: background-color 0.4s;
+          border-radius: 20px;
+
+          &::before {
+              content: '';
+              position: absolute;
+              width: 32px;
+              height: 32px;
+              left: 4px;
+              bottom: 4px;
+              background: white;
+              border-radius: 50%;
+          }
+      }
+  }
+  */
 }
 #app div.row #list-title {
   border: 3px solid red;

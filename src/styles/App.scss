@@ -20,6 +20,7 @@
     }
 
     div.row {
+        /*
         .switch {
             padding: 10px;
             display: block;
@@ -71,6 +72,7 @@
                 }
             }
         }
+        */
 
         #list-title {
             @include Border(red);
