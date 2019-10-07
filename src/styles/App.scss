@@ -9,6 +9,11 @@
     border-style: $style;
 }
 
+// override other text color
+.darkmode-layer, .darkmode-toggle {
+    z-index: 500;
+}
+
 #app {
     hr {
         border: none;

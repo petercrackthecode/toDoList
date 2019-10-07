@@ -5,6 +5,10 @@
   padding: 5rem;
 }
 
+.darkmode-layer, .darkmode-toggle {
+  z-index: 500;
+}
+
 #app hr {
   border: none;
   height: 2px;
