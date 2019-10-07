@@ -29,6 +29,7 @@ export function Task(props) {
       className={`task-${props.task} mt-1 mb-1`}
       bsPrefix="media-body"
       taskid={props.taskID}
+      draggable='true'
     >
       <input
         type="checkbox"
