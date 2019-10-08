@@ -1,4 +1,5 @@
 {
     "editor.fontFamily": "'Monoid', Monaco, 'Courier New', monospace",
-    "editor.fontSize": 14
+    "editor.fontSize": 14,
+    "git.ignoreLimitWarning": true
 }
