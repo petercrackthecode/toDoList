@@ -85,14 +85,6 @@ class App extends Component {
     audio.play();
   };
 
-  toggleDarkMode = async () => {
-    this.setState(currentState => ({
-      m_isDarkModeOn: !currentState.m_isDarkModeOn
-    }));
-
-    console.log("DarkMode is " + this.state.m_isDarkModeOn);
-  };
-
   toggle = async param => {
     await this.setState(currState => ({
       [param]: !currState[param]
@@ -136,15 +128,6 @@ class App extends Component {
 
     return (
       <Container id="app">
-      {/*
-        <Row>
-          <label className="switch col-md-4 offset-md-2 col-lg-2 offset-lg-5 col-sm-5 offset-sm-1">
-            <strong>Dark mode</strong>
-            <input type="checkbox" onChange={this.toggleDarkMode} readOnly />
-            <span className="theme"></span>
-          </label>
-        </Row>
-        */}
         <Row>
           <ListTitle listTitle={m_listTitle} />
         </Row>
