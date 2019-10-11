@@ -64,7 +64,7 @@ const currentCompleted = isEmptyObject(localStorage.getItem("completed"))
 
 class App extends Component {
   state = {
-    m_listTitle: "List of questions to ask the HackClub rep",
+    m_listTitle: "Peter Nguyen's to-do list",
     m_input: "",
     m_toDo: currentToDo,
     m_completed: currentCompleted,

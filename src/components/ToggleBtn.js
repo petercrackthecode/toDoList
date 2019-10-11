@@ -3,8 +3,12 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 
 export function Toggle(props) {
-  const toggle= async () => {
-    props.type === 'm_toDo' ? props.toggle('m_isToDoOpen') : props.toggle('m_isCompletedOpen');
+  const type = props.type === "m_toDo" ? "to-do" : "completed";
+
+  const toggle = async () => {
+    props.type === "m_toDo"
+      ? props.toggle("m_isToDoOpen")
+      : props.toggle("m_isCompletedOpen");
   };
 
   return (
@@ -13,7 +17,7 @@ export function Toggle(props) {
         variant="secondary"
         className="col-md-2 offset-md-5 mb-2"
         onClick={toggle}
-      >{`${props.listLength} to-do tasks`}</Button>
+      >{`${props.listLength} ${type} tasks`}</Button>
       <hr />
     </div>
   );
