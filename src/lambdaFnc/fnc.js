@@ -31,6 +31,8 @@ const allowDrop = event => {
   event.preventDefault();
 };
 
-const drag = event => {};
+const drag = event => {
+  event.dataTransfer.dropEffect= 'move';
+};
 
 const drop = event => {};
