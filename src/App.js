@@ -121,6 +121,15 @@ class App extends Component {
     });
   };
 
+  handleDrag = async (from, to) => {
+    let newState= this.state;
+    let tempFrom= newState.m_toDo[from];
+    newState.m_toDo[from]= newState.m_toDo[to];
+    newState.m_toDo[to]= tempFrom;
+    
+    this.setState(newState);
+  }
+
   render() {
     const { m_listTitle } = this.state;
     const toDo = this.state.m_toDo,
