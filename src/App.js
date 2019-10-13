@@ -8,8 +8,8 @@ import ListTitle from "./components/ListTitle.js";
 import CompletedList from "./components/CompletedList.js";
 import ToDoList from "./components/ToDoList.js";
 import Input from "./components/Input.js";
-import ID from "./lambdaFnc/fnc.js";
-import { isEmptyObject } from "./lambdaFnc/fnc.js";
+import ID, { isEmptyObject, drop, drag, allowDrop } from "./lambdaFnc/fnc.js";
+
 
 // import from React Bootstrap
 import Container from "react-bootstrap/Container";
@@ -60,10 +60,6 @@ const currentCompleted = isEmptyObject(localStorage.getItem("completed"))
   ? ""
   : JSON.parse(localStorage.getItem("completed"));
 
-// Using React Hook
-const [from, setFrom] = useState(null);
-const [to, setTo] = useState(null);
-
 class App extends Component {
   state = {
     m_listTitle: "Peter Nguyen's to-do list",
@@ -72,7 +68,7 @@ class App extends Component {
     m_completed: currentCompleted,
     m_isToDoOpen: true,
     m_isCompletedOpen: true,
-    m_isDarkModeOn: false
+    m_isDarkModeOn: false,
   };
 
   componentDidUpdate = async () => {
