@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, Component } from "react";
 import "./styles/App.css";
 
 import HandBellFlac from "./media/hand-bell.flac";
@@ -15,25 +15,23 @@ import { isEmptyObject } from "./lambdaFnc/fnc.js";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
-import Darkmode from 'darkmode-js';
-
-
+import Darkmode from "darkmode-js";
 
 let options = {
-  bottom: '90%', // default: '32px'
-  right: '32px', // default: '32px'
-  left: 'unset', // default: 'unset'
-  time: '0.5s', // default: '0.3s'
-  mixColor: '#fff', // default: '#fff'
-  backgroundColor: '#fff',  // default: '#fff'
-  buttonColorDark: '#100f2c',  // default: '#100f2c'
-  buttonColorLight: '#fff', // default: '#fff'
+  bottom: "90%", // default: '32px'
+  right: "32px", // default: '32px'
+  left: "unset", // default: 'unset'
+  time: "0.5s", // default: '0.3s'
+  mixColor: "#fff", // default: '#fff'
+  backgroundColor: "#fff", // default: '#fff'
+  buttonColorDark: "#100f2c", // default: '#100f2c'
+  buttonColorLight: "#fff", // default: '#fff'
   saveInCookies: true, // default: true,
-  label: '🌓', // default: ''
+  label: "🌓", // default: ''
   autoMatchOsTheme: false // default: true
 };
 
-const darkMode= new Darkmode(options);
+const darkMode = new Darkmode(options);
 darkMode.showWidget();
 
 const defaultToDo = [
@@ -61,6 +59,10 @@ const currentToDo = isEmptyObject(localStorage.getItem("toDo"))
 const currentCompleted = isEmptyObject(localStorage.getItem("completed"))
   ? ""
   : JSON.parse(localStorage.getItem("completed"));
+
+// Using React Hook
+const [from, setFrom] = useState(null);
+const [to, setTo] = useState(null);
 
 class App extends Component {
   state = {
@@ -122,13 +124,13 @@ class App extends Component {
   };
 
   handleDrag = async (from, to) => {
-    let newState= this.state;
-    let tempFrom= newState.m_toDo[from];
-    newState.m_toDo[from]= newState.m_toDo[to];
-    newState.m_toDo[to]= tempFrom;
-    
-    this.setState(newState);
-  }
+    let toDo= [...this.state.m_toDo];
+    toDo.splice(to, 0, toDo.splice(from, 1)[0]);
+
+    this.setState({
+      m_toDo: toDo,
+    });
+  };
 
   render() {
     const { m_listTitle } = this.state;
