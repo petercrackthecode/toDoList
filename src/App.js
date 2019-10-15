@@ -101,7 +101,9 @@ class App extends Component {
   shiftTask = async (from = "", to = "", taskID = "") => {
     let newState = this.state;
     const task = newState[from][taskID];
+    console.log("Before shifting: " + Object.getOwnPropertyNames(newState[from]).length);
     delete newState[from][taskID];
+    console.log("After shifting: " + Object.getOwnPropertyNames(newState[from]).length);
     newState[to][taskID] = task;
 
     this.setState(newState);

@@ -12,9 +12,9 @@ export default function CompletedList(props) {
   const completedList = !isEmptyObject(props.completedList)
     ? Object.keys(props.completedList).map(id => (
         <Task
-          task={props.completedList[id]}
+          task={props.completedList[id].task}
           taskID={id}
-          key={id}
+          key={props.completedList[id].key}
           shiftTask={props.shiftTask}
           type="m_completed"
           deleteTask={props.deleteTask}

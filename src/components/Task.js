@@ -16,6 +16,7 @@ export function Task(props) {
   };
 
   const m_onClick = async () => {
+    console.log(props.task);
     shiftTask();
     props.type === "m_toDo" ? props.playSound() : (function doNothing() {})();
   };
