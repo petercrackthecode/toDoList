@@ -19,6 +19,7 @@ export default function ToDoList(props) {
           type="m_toDo"
           deleteTask={props.deleteTask}
           playSound={props.playSound}
+          handleDrag={props.handleDrag}
         />
       ))
     : null;

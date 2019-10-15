@@ -5,8 +5,6 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-import {allowDrop, drag, drop} from '../lambdaFnc/fnc.js';
-
 export function Task(props) {
   const shiftTask = async () => {
     const from = props.type;
@@ -26,6 +24,21 @@ export function Task(props) {
     props.deleteTask(from, props.taskID);
   };
 
+  const allowDrop = event => {
+    event.preventDefault();
+  };
+  
+  // onDragStart
+  const drag = event => {
+    event.dataTransfer.dropEffect= 'move';
+    event.dataTransfer.setData('dragPos', props.taskID)
+  };
+  
+  const drop = event => {
+    event.preventDefault();
+    props.handleDrag(event.dataTransfer.getData('dragPos'), event.target.taskid);
+  };
+
   return (
     <ListGroup.Item
       as="li"
@@ -33,10 +46,9 @@ export function Task(props) {
       bsPrefix="media-body"
       taskid={props.taskID}
       draggable='true'
-      /*onDragStart={''}
+      onDragStart={drag}
+      onDrop={drop}
       onDragOver={allowDrop}
-      onDrop={''}
-      */
     >
       <input
         type="checkbox"

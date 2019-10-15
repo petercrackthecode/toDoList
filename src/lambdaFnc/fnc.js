@@ -27,13 +27,3 @@ export const isEmptyObject = obj => {
   return Object.entries(obj).length === 0 && obj.constructor === Object;
 };
 
-export const allowDrop = event => {
-  event.preventDefault();
-};
-
-// onDragStart
-export const drag = event => {
-  event.dataTransfer.dropEffect= 'move';
-};
-
-export const drop = event => {};

@@ -142,7 +142,7 @@ class App extends Component {
       newToDo[keys[id + 1]]= newToDo[keys[id]];
     }
     newToDo[dropPos]= dragPosValue;
-    
+
     this.setState({
       m_toDo: newToDo
     });
@@ -156,8 +156,8 @@ class App extends Component {
       dropIndex = keys.indexOf(dropPos);
     const isDraggingDown = dragPos < dropPos;
 
-    if (isDraggingDown) dragDown(newToDo, dragPos, dropPos, keys, dragIndex, dropIndex);
-    else dragUp(dragPos, dropPos, keys, dragIndex, dropIndex);
+    if (isDraggingDown) this.dragDown(newToDo, dragPos, dropPos, keys, dragIndex, dropIndex);
+    else this.dragUp(dragPos, dropPos, keys, dragIndex, dropIndex);
   };
 
   render() {
@@ -186,6 +186,7 @@ class App extends Component {
             shiftTask={this.shiftTask}
             deleteTask={this.deleteTask}
             playSound={this.playSound}
+            handleDrag={this.handleDrag}
           />
         </Row>
         <Row>
