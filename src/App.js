@@ -1,4 +1,4 @@
-import React, {Component } from "react";
+import React, { Component } from "react";
 import "./styles/App.css";
 
 import HandBellFlac from "./media/hand-bell.flac";
@@ -70,7 +70,7 @@ class App extends Component {
     m_isCompletedOpen: true
   };
 
-  componentDidMount= async () => {
+  componentDidMount = async () => {
     console.log("Component did mount");
     console.log(this.state.m_toDo);
   };
@@ -102,9 +102,7 @@ class App extends Component {
   shiftTask = async (from = "", to = "", taskID = "") => {
     let newState = this.state;
     const task = newState[from][taskID];
-    console.log("Before shifting: " + Object.getOwnPropertyNames(newState[from]).length);
     delete newState[from][taskID];
-    console.log("After shifting: " + Object.getOwnPropertyNames(newState[from]).length);
     newState[to][taskID] = task;
 
     this.setState(newState);
@@ -112,9 +110,10 @@ class App extends Component {
 
   addNewTask = async newTask => {
     let currentState = this.state;
-    const toDoSize= Object.getOwnPropertyNames(currentState.m_toDo).length;
-    const newTaskID= Number(Object.keys(currentState.m_toDo)[toDoSize - 1]) + 1;
-    currentState.m_toDo[newTaskID] = {key: ID(), task: newTask};
+    const toDoSize = Object.getOwnPropertyNames(currentState.m_toDo).length;
+    const newTaskID =
+      Number(Object.keys(currentState.m_toDo)[toDoSize - 1]) + 1;
+    currentState.m_toDo[newTaskID] = { key: ID(), task: newTask };
     this.setState(currentState);
   };
 
@@ -124,8 +123,17 @@ class App extends Component {
     });
   };
 
-  handleDrag = async (startPos, endPos) => {
-    
+  handleDrag = async (dragPos, dropPos) => {
+    // dragPos, dropPos is the 'key's in the m_toDo object
+    let currentState= this.state;
+    const keys= Object.keys(this.state.m_toDo);
+    const dragIndex= keys.indexOf(dragPos), dropIndex= keys.indexOf(dropPos);
+
+    const taskAtDrag= currentState.m_toDo[dragPos];
+
+    for (let id= dropIndex + 1; id <= dragIndex; ++id) {
+      
+    }
   };
 
   render() {
