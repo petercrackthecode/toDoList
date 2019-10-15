@@ -5,6 +5,8 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
+import {allowDrop, drag, drop} from '../lambdaFnc/fnc.js';
+
 export function Task(props) {
   const shiftTask = async () => {
     const from = props.type;
@@ -30,6 +32,9 @@ export function Task(props) {
       bsPrefix="media-body"
       taskid={props.taskID}
       draggable='true'
+      onDragStart={''}
+      onDragOver={allowDrop}
+      onDrop={''}
     >
       <input
         type="checkbox"

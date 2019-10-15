@@ -46,7 +46,8 @@ let completedWithID = {};
 
 defaultToDo.map(aTask => (toDoWithID[ID()] = aTask));
 
-// check if local storage already exist, if not then initiate it with the default list
+// check if local storage already exist, if not then initiate it with the default list.
+// This action is only be done at the beginning of a working period.
 if (!localStorage.getItem("toDo") || localStorage.getItem('toDo') === "{}")
   localStorage.setItem("toDo", JSON.stringify(toDoWithID));
 
@@ -68,7 +69,6 @@ class App extends Component {
     m_completed: currentCompleted,
     m_isToDoOpen: true,
     m_isCompletedOpen: true,
-    m_isDarkModeOn: false,
   };
 
   componentDidUpdate = async () => {
