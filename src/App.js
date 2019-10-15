@@ -138,7 +138,14 @@ class App extends Component {
   dragUp = async (newToDo, dragPos, dropPos, keys, dragIndex, dropIndex) => {
     const dragPosValue= newToDo.dragPos;
 
+    for (let id= dropIndex + 1; id <= dragIndex; ++id) {
+      newToDo[keys[id + 1]]= newToDo[keys[id]];
+    }
     newToDo[dropPos]= dragPosValue;
+    
+    this.setState({
+      m_toDo: newToDo
+    });
   };
 
   handleDrag = async (dragPos, dropPos) => {
@@ -147,9 +154,6 @@ class App extends Component {
     const keys = Object.keys(this.state.m_toDo);
     const dragIndex = keys.indexOf(dragPos),
       dropIndex = keys.indexOf(dropPos);
-
-    const taskAtDrag = currentState.m_toDo[dragPos];
-
     const isDraggingDown = dragPos < dropPos;
 
     if (isDraggingDown) dragDown(newToDo, dragPos, dropPos, keys, dragIndex, dropIndex);
