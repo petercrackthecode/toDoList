@@ -71,6 +71,7 @@ class App extends Component {
   };
 
   componentDidMount= async () => {
+    console.log("Component did mount");
     console.log(this.state.m_toDo);
   };
 
@@ -111,11 +112,9 @@ class App extends Component {
 
   addNewTask = async newTask => {
     let currentState = this.state;
-    console.log(currentState.m_toDo);
     const toDoSize= Object.getOwnPropertyNames(currentState.m_toDo).length;
-    console.log("size= " + toDoSize);
-    console.log(Object.getOwnPropertyNames(currentState.m_toDo));
-    currentState.m_toDo[toDoSize] = {key: ID(), task: newTask};
+    const newTaskID= Number(Object.keys(currentState.m_toDo)[toDoSize - 1]) + 1;
+    currentState.m_toDo[newTaskID] = {key: ID(), task: newTask};
     this.setState(currentState);
   };
 
@@ -125,13 +124,8 @@ class App extends Component {
     });
   };
 
-  handleDrag = async (from, to) => {
-    let toDo = [...this.state.m_toDo];
-    toDo.splice(to, 0, toDo.splice(from, 1)[0]);
-
-    this.setState({
-      m_toDo: toDo
-    });
+  handleDrag = async (startPos, endPos) => {
+    
   };
 
   render() {

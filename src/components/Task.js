@@ -33,9 +33,10 @@ export function Task(props) {
       bsPrefix="media-body"
       taskid={props.taskID}
       draggable='true'
-      onDragStart={''}
+      /*onDragStart={''}
       onDragOver={allowDrop}
       onDrop={''}
+      */
     >
       <input
         type="checkbox"
