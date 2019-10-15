@@ -47,7 +47,7 @@ let completedWithID = {};
 defaultToDo.map(aTask => (toDoWithID[ID()] = aTask));
 
 // check if local storage already exist, if not then initiate it with the default list
-if (!localStorage.getItem("toDo"))
+if (!localStorage.getItem("toDo") || localStorage.getItem('toDo') === "{}")
   localStorage.setItem("toDo", JSON.stringify(toDoWithID));
 
 if (!localStorage.getItem("completed"))
