@@ -70,6 +70,10 @@ class App extends Component {
     m_isCompletedOpen: true
   };
 
+  componentDidMount= async () => {
+    console.log(this.state.m_toDo);
+  };
+
   componentDidUpdate = async () => {
     localStorage.setItem("toDo", JSON.stringify(this.state.m_toDo));
     localStorage.setItem("completed", JSON.stringify(this.state.m_completed));
@@ -105,7 +109,10 @@ class App extends Component {
 
   addNewTask = async newTask => {
     let currentState = this.state;
-    const toDoSize= Object.getOwnPropertyNames(currentState).length;
+    console.log(currentState.m_toDo);
+    const toDoSize= Object.getOwnPropertyNames(currentState.m_toDo).length;
+    console.log("size= " + toDoSize);
+    console.log(Object.getOwnPropertyNames(currentState.m_toDo));
     currentState.m_toDo[toDoSize] = {key: ID(), task: newTask};
     this.setState(currentState);
   };
