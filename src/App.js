@@ -1,4 +1,4 @@
-import React, { useState, Component } from "react";
+import React, {Component } from "react";
 import "./styles/App.css";
 
 import HandBellFlac from "./media/hand-bell.flac";
@@ -9,7 +9,6 @@ import CompletedList from "./components/CompletedList.js";
 import ToDoList from "./components/ToDoList.js";
 import Input from "./components/Input.js";
 import ID, { isEmptyObject, drop, drag, allowDrop } from "./lambdaFnc/fnc.js";
-
 
 // import from React Bootstrap
 import Container from "react-bootstrap/Container";
@@ -44,11 +43,11 @@ const defaultToDo = [
 let toDoWithID = {};
 let completedWithID = {};
 
-defaultToDo.map(aTask => (toDoWithID[ID()] = aTask));
+defaultToDo.map((aTask, id) => (toDoWithID[id] = { key: ID(), task: aTask }));
 
 // check if local storage already exist, if not then initiate it with the default list.
 // This action is only be done at the beginning of a working period.
-if (!localStorage.getItem("toDo") || localStorage.getItem('toDo') === "{}")
+if (!localStorage.getItem("toDo") || localStorage.getItem("toDo") === "{}")
   localStorage.setItem("toDo", JSON.stringify(toDoWithID));
 
 if (!localStorage.getItem("completed"))
@@ -68,7 +67,7 @@ class App extends Component {
     m_toDo: currentToDo,
     m_completed: currentCompleted,
     m_isToDoOpen: true,
-    m_isCompletedOpen: true,
+    m_isCompletedOpen: true
   };
 
   componentDidUpdate = async () => {
@@ -97,9 +96,6 @@ class App extends Component {
 
   shiftTask = async (from = "", to = "", taskID = "") => {
     let newState = this.state;
-    console.log(newState);
-    console.log(from);
-    console.log(taskID);
     const task = newState[from][taskID];
     delete newState[from][taskID];
     newState[to][taskID] = task;
@@ -109,7 +105,8 @@ class App extends Component {
 
   addNewTask = async newTask => {
     let currentState = this.state;
-    currentState.m_toDo[ID()] = newTask;
+    const toDoSize= Object.getOwnPropertyNames(currentState).length;
+    currentState.m_toDo[toDoSize] = {key: ID(), task: newTask};
     this.setState(currentState);
   };
 
@@ -120,11 +117,11 @@ class App extends Component {
   };
 
   handleDrag = async (from, to) => {
-    let toDo= [...this.state.m_toDo];
+    let toDo = [...this.state.m_toDo];
     toDo.splice(to, 0, toDo.splice(from, 1)[0]);
 
     this.setState({
-      m_toDo: toDo,
+      m_toDo: toDo
     });
   };
 

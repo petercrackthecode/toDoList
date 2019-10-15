@@ -12,9 +12,9 @@ export default function ToDoList(props) {
   const toDoList = !isEmptyObject(props.toDoList)
     ? Object.keys(props.toDoList).map(id => (
         <Task
-          task={props.toDoList[id]}
+          task={props.toDoList[id].task}
           taskID={id}
-          key={id}
+          key={props.toDoList[id].key}
           shiftTask={props.shiftTask}
           type="m_toDo"
           deleteTask={props.deleteTask}
