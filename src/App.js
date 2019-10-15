@@ -123,17 +123,37 @@ class App extends Component {
     });
   };
 
+  dragDown = async (newToDo, dragPos, dropPos, keys, dragIndex, dropIndex) => {
+    const dragPosValue= newToDo.dragPos;
+    for (let id= dropIndex; id < dragIndex; ++id) {
+      newToDo[keys[id]]= newToDo[keys[id + 1]];
+    }
+    newToDo[dropPos]= dragPosValue;
+
+    this.setState({
+      m_toDo: newToDo
+    });
+  };
+
+  dragUp = async (newToDo, dragPos, dropPos, keys, dragIndex, dropIndex) => {
+    const dragPosValue= newToDo.dragPos;
+
+    newToDo[dropPos]= dragPosValue;
+  };
+
   handleDrag = async (dragPos, dropPos) => {
     // dragPos, dropPos is the 'key's in the m_toDo object
-    let currentState= this.state;
-    const keys= Object.keys(this.state.m_toDo);
-    const dragIndex= keys.indexOf(dragPos), dropIndex= keys.indexOf(dropPos);
+    let newToDo= this.state.m_toDo;
+    const keys = Object.keys(this.state.m_toDo);
+    const dragIndex = keys.indexOf(dragPos),
+      dropIndex = keys.indexOf(dropPos);
 
-    const taskAtDrag= currentState.m_toDo[dragPos];
+    const taskAtDrag = currentState.m_toDo[dragPos];
 
-    for (let id= dropIndex + 1; id <= dragIndex; ++id) {
-      
-    }
+    const isDraggingDown = dragPos < dropPos;
+
+    if (isDraggingDown) dragDown(newToDo, dragPos, dropPos, keys, dragIndex, dropIndex);
+    else dragUp(dragPos, dropPos, keys, dragIndex, dropIndex);
   };
 
   render() {
