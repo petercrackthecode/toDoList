@@ -70,11 +70,6 @@ class App extends Component {
     m_isCompletedOpen: true
   };
 
-  componentDidMount = async () => {
-    console.log("Component did mount");
-    console.log(this.state.m_toDo);
-  };
-
   componentDidUpdate = async () => {
     localStorage.setItem("toDo", JSON.stringify(this.state.m_toDo));
     localStorage.setItem("completed", JSON.stringify(this.state.m_completed));
@@ -159,8 +154,8 @@ class App extends Component {
     const keys = Object.keys(this.state.m_toDo).sort(function(a, b) {
       return Number(a) - Number(b);
     });
-    const dragIndex = keys.indexOf(dragPos),
-      dropIndex = keys.indexOf(dropPos);
+    const dragIndex = keys.indexOf(dragPos.toString()),
+      dropIndex = keys.indexOf(dropPos.toString());
     const isDraggingDown = dragPos < dropPos;
 
     if (isDraggingDown)
