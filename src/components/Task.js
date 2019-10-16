@@ -36,7 +36,10 @@ export function Task(props) {
   
   const drop = event => {
     event.preventDefault();
-    props.handleDrag(event.dataTransfer.getData('dragPos'), event.target.taskid);
+
+    const dragPos= Number(event.dataTransfer.getData('dragPos')), dropPos= Number(event.target.taskID);
+
+    props.handleDrag(dragPos, dropPos);
   };
 
   return (

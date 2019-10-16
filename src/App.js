@@ -123,25 +123,28 @@ class App extends Component {
     });
   };
 
+  // drag a task to a position vertically lower than its current position
   dragDown = async (newToDo, dragPos, dropPos, keys, dragIndex, dropIndex) => {
-    const dragPosValue= newToDo.dragPos;
-    for (let id= dropIndex; id < dragIndex; ++id) {
-      newToDo[keys[id]]= newToDo[keys[id + 1]];
+    const dragPosValue = newToDo[dragPos];
+
+    for (let id = dragIndex; id < dropIndex; ++id) {
+      newToDo[keys[id]] = newToDo[keys[id + 1]];
     }
-    newToDo[dropPos]= dragPosValue;
+    newToDo[dropPos] = dragPosValue;
 
     this.setState({
       m_toDo: newToDo
     });
   };
 
+  // drag a task to a position vertically higher than its current position
   dragUp = async (newToDo, dragPos, dropPos, keys, dragIndex, dropIndex) => {
-    const dragPosValue= newToDo.dragPos;
+    const dragPosValue = newToDo[dragPos];
 
-    for (let id= dropIndex + 1; id <= dragIndex; ++id) {
-      newToDo[keys[id + 1]]= newToDo[keys[id]];
+    for (let id = dragIndex; id > dropIndex; --id) {
+      newToDo[keys[id]] = newToDo[keys[id - 1]];
     }
-    newToDo[dropPos]= dragPosValue;
+    newToDo[dropPos] = dragPosValue;
 
     this.setState({
       m_toDo: newToDo
@@ -150,14 +153,19 @@ class App extends Component {
 
   handleDrag = async (dragPos, dropPos) => {
     // dragPos, dropPos is the 'key's in the m_toDo object
-    let newToDo= this.state.m_toDo;
-    const keys = Object.keys(this.state.m_toDo);
+    if (dragPos === dropPos) return;
+
+    let newToDo = this.state.m_toDo;
+    const keys = Object.keys(this.state.m_toDo).sort(function(a, b) {
+      return Number(a) - Number(b);
+    });
     const dragIndex = keys.indexOf(dragPos),
       dropIndex = keys.indexOf(dropPos);
     const isDraggingDown = dragPos < dropPos;
 
-    if (isDraggingDown) this.dragDown(newToDo, dragPos, dropPos, keys, dragIndex, dropIndex);
-    else this.dragUp(dragPos, dropPos, keys, dragIndex, dropIndex);
+    if (isDraggingDown)
+      this.dragDown(newToDo, dragPos, dropPos, keys, dragIndex, dropIndex);
+    else this.dragUp(newToDo, dragPos, dropPos, keys, dragIndex, dropIndex);
   };
 
   render() {
