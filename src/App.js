@@ -8,7 +8,7 @@ import ListTitle from "./components/ListTitle.js";
 import CompletedList from "./components/CompletedList.js";
 import ToDoList from "./components/ToDoList.js";
 import Input from "./components/Input.js";
-import ID, { isEmptyObject, drop, drag, allowDrop } from "./lambdaFnc/fnc.js";
+import ID, { isEmptyObject} from "./lambdaFnc/fnc.js";
 
 // import from React Bootstrap
 import Container from "react-bootstrap/Container";
@@ -70,6 +70,11 @@ class App extends Component {
     m_isCompletedOpen: true
   };
 
+  componentDidMount = async () => {
+    console.info("after mounting, m_toDo= ");
+    console.log(this.state.m_toDo);
+  };
+
   componentDidUpdate = async () => {
     localStorage.setItem("toDo", JSON.stringify(this.state.m_toDo));
     localStorage.setItem("completed", JSON.stringify(this.state.m_completed));
@@ -105,16 +110,13 @@ class App extends Component {
 
   addNewTask = async newTask => {
     let currentState = this.state;
+    console.log("currentState= " + currentState);
+    console.log("currentState.m_toDo= " + currentState.m_toDo);
     const toDoSize = Object.getOwnPropertyNames(currentState.m_toDo).length;
-    console.log("Size= " + toDoSize);
-    console.log(currentState.m_toDo);
-    console.log(Object.getOwnPropertyNames(currentState.m_toDo));
-    console.log(Object.keys(currentState.m_toDo));
-    const newTaskID =
-      parseInt(Object.keys(currentState.m_toDo)[toDoSize - 1]) + 1;
-    console.log(newTaskID);
-    // currentState.m_toDo[newTaskID] = { key: ID(), task: newTask };
-    // this.setState(currentState);
+    const newTaskID = (toDoSize) ? parseInt(Object.keys(currentState.m_toDo)[toDoSize - 1], 10) + 1 : 0;
+    console.log("The new ID is " + newTaskID);
+    currentState.m_toDo[newTaskID] = { key: ID(), task: newTask };
+    this.setState(currentState);
   };
 
   changeInput = async newInput => {
