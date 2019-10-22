@@ -7,6 +7,7 @@ export default function Input(props) {
     const addNewTask= async (event) => {
         if (event.keyCode === 13) {
             event.preventDefault();
+            console.log("The new task is " + event.target.value);
             await props.addNewTask(event.target.value);
 
             props.changeInput('');

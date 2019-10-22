@@ -106,10 +106,15 @@ class App extends Component {
   addNewTask = async newTask => {
     let currentState = this.state;
     const toDoSize = Object.getOwnPropertyNames(currentState.m_toDo).length;
+    console.log("Size= " + toDoSize);
+    console.log(currentState.m_toDo);
+    console.log(Object.getOwnPropertyNames(currentState.m_toDo));
+    console.log(Object.keys(currentState.m_toDo));
     const newTaskID =
-      Number(Object.keys(currentState.m_toDo)[toDoSize - 1]) + 1;
-    currentState.m_toDo[newTaskID] = { key: ID(), task: newTask };
-    this.setState(currentState);
+      parseInt(Object.keys(currentState.m_toDo)[toDoSize - 1]) + 1;
+    console.log(newTaskID);
+    // currentState.m_toDo[newTaskID] = { key: ID(), task: newTask };
+    // this.setState(currentState);
   };
 
   changeInput = async newInput => {
