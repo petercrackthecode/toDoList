@@ -1,0 +1,31 @@
+[debug] [2019-10-23T06:47:30.794Z] ----------------------------------------------------------------------
+[debug] [2019-10-23T06:47:30.795Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2019-10-23T06:47:30.795Z] CLI Version:   7.6.1
+[debug] [2019-10-23T06:47:30.795Z] Platform:      darwin
+[debug] [2019-10-23T06:47:30.795Z] Node Version:  v12.13.0
+[debug] [2019-10-23T06:47:30.796Z] Time:          Tue Oct 22 2019 23:47:30 GMT-0700 (Pacific Daylight Time)
+[debug] [2019-10-23T06:47:30.796Z] ----------------------------------------------------------------------
+[debug] [2019-10-23T06:47:30.796Z] 
+[debug] [2019-10-23T06:47:30.802Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-23T06:47:30.802Z] > authorizing via signed-in user
+[debug] [2019-10-23T06:47:30.803Z] [iam] checking project test-project-of-dung-nguyen for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2019-10-23T06:47:30.804Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/test-project-of-dung-nguyen:testIamPermissions  
+
+[debug] [2019-10-23T06:47:31.069Z] <<< HTTP RESPONSE 200
+[debug] [2019-10-23T06:47:31.071Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/test-project-of-dung-nguyen  
+ 
+[debug] [2019-10-23T06:47:31.284Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'test-project-of-dung-nguyen'...
+[info] 
+[info] i  deploying database, storage, firestore, functions, hosting
+[debug] [2019-10-23T06:47:31.389Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received type undefined
+    at validateString (internal/validators.js:112:11)
+    at Object.join (path.js:1040:7)
+    at Config.path (/Users/peternguyen/.config/yarn/global/node_modules/firebase-tools/lib/config.js:149:39)
+    at getChildEnvironment (/Users/peternguyen/.config/yarn/global/node_modules/firebase-tools/lib/deploy/lifecycleHooks.js:50:49)
+    at runTargetCommands (/Users/peternguyen/.config/yarn/global/node_modules/firebase-tools/lib/deploy/lifecycleHooks.js:71:14)
+    at /Users/peternguyen/.config/yarn/global/node_modules/firebase-tools/lib/deploy/lifecycleHooks.js:122:24
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+[error] 
+[error] Error: An unexpected error has occurred.
